@@ -12,7 +12,5 @@ script = ExtResource("1_yxin3")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_840dg")
 
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D"]
 shape = SubResource("SphereShape3D_o55fl")

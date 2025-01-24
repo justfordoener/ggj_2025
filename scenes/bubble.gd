@@ -6,12 +6,15 @@ extends Node3D
 @export var growth_rate: float = 0.1
 var air_amount: float = 0.0
 
+#onready var collision_shape = $Area3D/CollisionShape3D
+
 # signal for popping
 signal bubble_popped
+signal bubble_absorbed
 
 func _ready():
 	scale = Vector3.ONE * start_scale			# small starting bubble
-	
+
 func _process(delta: float):
 	# bubble grows
 	scale += Vector3.ONE * growth_rate * delta
@@ -20,6 +23,7 @@ func _process(delta: float):
 	# check if bubble popps
 	if scale >= Vector3.ONE * max_scale:
 		pop_bubble()
+		
 
 func calculate_air_amount(cur_scale: Vector3):
 	return 4.0 / 3.0 * PI * pow(cur_scale.x, 3)
@@ -30,3 +34,13 @@ func pop_bubble():
 	print("Bubble popped")
 	
 	queue_free()
+	
+func absorb_bubble() -> float:
+	var absorbed_air = air_amount
+	# send signal that bubble is absorbed
+	# emit_signal("bubble_absorbed", absorbed_air)
+	# delete bubble
+	queue_free()
+	# return aborbed air
+	print("absorbed " + str(absorbed_air) + " air")
+	return absorbed_air
