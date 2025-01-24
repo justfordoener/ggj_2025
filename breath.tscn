@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2q18hxffjxqq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ti471"]
+
+[node name="breath" type="Node3D"]
+
+[node name="bubble" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ti471")
