@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://fmpob7r38tkr"]
 
 [ext_resource type="Script" path="res://scripts/spider.gd" id="1_vgied"]
-[ext_resource type="PackedScene" uid="uid://c2q18hxffjxqq" path="res://breath.tscn" id="2_68h4s"]
+[ext_resource type="PackedScene" path="res://breath.tscn" id="2_68h4s"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_6der6"]
 

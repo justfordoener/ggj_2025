@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cigres6fumq7p"]
+[gd_scene load_steps=5 format=3 uid="uid://cigres6fumq7p"]
 
 [ext_resource type="PackedScene" uid="uid://fmpob7r38tkr" path="res://scenes/spider.tscn" id="1_owgxw"]
-[ext_resource type="PackedScene" uid="uid://dj6m5lq1j4m48" path="res://scenes/bubble.tscn" id="2_r3a42"]
+[ext_resource type="PackedScene" path="res://scenes/bubble.tscn" id="2_r3a42"]
+[ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="3_l1mkp"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rwh51"]
 
@@ -20,3 +21,5 @@ transform = Transform3D(1, 0, 0, 0, 0.911145, 0.412087, 0, -0.412087, 0.911145, 
 
 [node name="bubble" parent="." instance=ExtResource("2_r3a42")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.774361, 0.0186862, 0.851193)
+
+[node name="game timer" parent="." instance=ExtResource("3_l1mkp")]
