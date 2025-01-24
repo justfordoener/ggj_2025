@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://fmpob7r38tkr"]
+
+[ext_resource type="Script" path="res://scripts/spider.gd" id="1_vgied"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_6der6"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.0999826, 0)
+script = ExtResource("1_vgied")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_6der6")
