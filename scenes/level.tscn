@@ -5,18 +5,18 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rwh51"]
 
-[node name="Node3D" type="Node3D"]
+[node name="level" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="plane" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_rwh51")
 
 [node name="spider" parent="." instance=ExtResource("1_owgxw")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(0.988751, 0.122369, -0.0860091, 0, 0.575035, 0.818129, 0.149572, -0.808925, 0.568567, 0.219712, 1.54516, 0.986509)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.911145, 0.412087, 0, -0.412087, 0.911145, 0, 1.03128, 2.17666)
 
-[node name="Node3D" parent="." instance=ExtResource("2_r3a42")]
+[node name="bubble" parent="." instance=ExtResource("2_r3a42")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.774361, 0.0186862, 0.851193)
