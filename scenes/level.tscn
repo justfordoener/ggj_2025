@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cigres6fumq7p"]
 
 [ext_resource type="PackedScene" uid="uid://fmpob7r38tkr" path="res://scenes/spider.tscn" id="1_owgxw"]
-[ext_resource type="PackedScene" uid="uid://dj6m5lq1j4m48" path="res://scenes/bubble.tscn" id="2_r3a42"]
+[ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="2_r3a42"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rwh51"]
 
