@@ -3,7 +3,7 @@ extends Node3D
 # characteristics
 @export var start_scale: float = 0.05
 @export var max_scale: float = 0.3
-@export var growth_rate: float = 0.1
+@export var growth_rate: float = 0.02
 var air_amount: float = 0.0
 
 #onready var collision_shape = $Area3D/CollisionShape3D
@@ -26,7 +26,7 @@ func _process(delta: float):
 		
 
 func calculate_air_amount(cur_scale: Vector3):
-	return 4.0 / 3.0 * PI * pow(cur_scale.x, 3)
+	return 4.0 / 3.0 * PI * pow(cur_scale.x, 3) * 1000
 
 func pop_bubble():
 	# emitt signal and play pop animation

@@ -6,7 +6,7 @@ extends Node3D
 @export var lose_air_rate = 5
 
 @onready var bubble : Node3D = $breath
-@onready var area : Area3D = $Area3D
+@onready var own_area : Area3D = $Area3D
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
 var air : float = 100
@@ -47,6 +47,9 @@ func _lose_air(delta : float):
 	bubble.scale = Vector3(air / max_air, air / max_air, air / max_air)
 	
 func _on_area_entered(area: Area3D) -> void:
-	if area.collision_layer & area.collision_mask:
-		print("collide")
+	if area.collision_layer & 4:
+		print("collision with bubble")
+		var collided_bubble = area.get_parent()
+		var new_air = collided_bubble.absorb_bubble()
+		add_air(new_air)
 	
