@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://chaedqn0rq1ri"]
+[gd_scene load_steps=3 format=3 uid="uid://dgrfa40y3gln3"]
 
 [ext_resource type="Script" path="res://scenes/bubble.gd" id="1_yxin3"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_840dg"]
 
-[node name="Node3D" type="Node3D"]
+[node name="bubble" type="Node3D"]
 script = ExtResource("1_yxin3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

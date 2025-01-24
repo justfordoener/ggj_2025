@@ -1,15 +1,16 @@
 extends Node3D
 
 # characteristics
-@export var growth_rate: float = 0.5
-@export var max_scale: float = 3.0
+@export var start_scale: float = 0.05
+@export var max_scale: float = 0.3
+@export var growth_rate: float = 0.1
 var air_amount: float = 0.0
 
 # signal for popping
 signal bubble_popped
 
 func _ready():
-	scale = Vector3(1,1,1)			# small starting bubble
+	scale = Vector3.ONE * start_scale			# small starting bubble
 	
 func _process(delta: float):
 	# bubble grows
