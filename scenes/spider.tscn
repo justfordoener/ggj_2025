@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://fmpob7r38tkr"]
+[gd_scene load_steps=4 format=3 uid="uid://fmpob7r38tkr"]
 
 [ext_resource type="Script" path="res://scripts/spider.gd" id="1_vgied"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_6der6"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m186"]
+albedo_color = Color(1, 0.388235, 1, 1)
+
 [node name="Node3D" type="Node3D"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.0999826, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
 script = ExtResource("1_vgied")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PrismMesh_6der6")
+surface_material_override/0 = SubResource("StandardMaterial3D_7m186")
