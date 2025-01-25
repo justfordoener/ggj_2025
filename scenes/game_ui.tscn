@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://e8wwnl7cydq2"]
 
 [ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="1_2a8fm"]
-[ext_resource type="Script" path="res://game_ui.gd" id="1_3hxp1"]
+[ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_3hxp1"]
 [ext_resource type="PackedScene" uid="uid://c6h33shxoj586" path="res://scenes/overlaid_game_end.tscn" id="2_msr2h"]
 
 [node name="Game UI" type="Control"]
@@ -15,9 +15,7 @@ script = ExtResource("1_3hxp1")
 
 [node name="game timer" parent="." instance=ExtResource("1_2a8fm")]
 layout_mode = 1
-start_time_seconds = 30
+start_time_seconds = 10
 
 [node name="game over menu" parent="." instance=ExtResource("2_msr2h")]
 layout_mode = 1
-
-[connection signal="timer_finished" from="game timer" to="." method="_on_game_timer_finished"]
