@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgweq45mcf7xq"]
+
+[ext_resource type="PackedScene" uid="uid://7oionx24osf" path="res://textures/Stone2.fbx" id="1_i5lu6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qs2ch"]
+size = Vector3(0.481956, 0.501831, 0.857914)
+
+[node name="obstacle" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011177, 0.216251, 5.96046e-08)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0222206, -0.134583, 0.0232754)
+shape = SubResource("BoxShape3D_qs2ch")
+
+[node name="Stone2" parent="." instance=ExtResource("1_i5lu6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0511142, -0.218126, -0.0344394)
