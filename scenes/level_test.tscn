@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://di84clpo2d0hf"]
+[gd_scene load_steps=11 format=3 uid="uid://di84clpo2d0hf"]
 
 [ext_resource type="PackedScene" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
 [ext_resource type="PackedScene" path="res://scenes/spider_2.tscn" id="3_0s65w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="6_o1v6f"]
 [ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacle.tscn" id="7_d4kxs"]
+[ext_resource type="PackedScene" uid="uid://ot2g83xcslup" path="res://scenes/obstacle_shoe.tscn" id="7_n5dtx"]
 [ext_resource type="PackedScene" uid="uid://ceipxs5377pau" path="res://scenes/spawner.tscn" id="8_aprab"]
 [ext_resource type="PackedScene" uid="uid://nn6kq63s4w8e" path="res://scenes/bubble_spawn_point.tscn" id="9_xtpyf"]
 
@@ -79,12 +80,6 @@ transform = Transform3D(1.92411, 0, -0.153446, 0, 0.2, 0, 2.3017, 0, 0.128274, 0
 [node name="obstacle8" parent="obstacles" instance=ExtResource("7_d4kxs")]
 transform = Transform3D(4.00493, 0, 0, 0, -1.72967, 0, 0, 0, 0.20221, 5.94995, -0.356434, 1.1693)
 
-[node name="obstacle9" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71253, 0.216251, -2.01473)
-
-[node name="obstacle10" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(2.56425, 0, 0, 0, 1, 0, 0, 0, 0.2, -3.87134, 0.216251, 1.49648)
-
 [node name="obstacle11" parent="obstacles" instance=ExtResource("7_d4kxs")]
 transform = Transform3D(0.173205, 0, 2, 0, 1, 0, -0.1, 0, 3.4641, -2.11378, -0.307754, 1.15846)
 
@@ -96,6 +91,12 @@ transform = Transform3D(-8.74228e-09, 0, 5, 0, 1, 0, -0.2, 0, -2.18557e-07, 3.44
 
 [node name="obstacle14" parent="obstacles" instance=ExtResource("7_d4kxs")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.86974, 0.300866, 2.28676)
+
+[node name="shoe2" parent="obstacles" instance=ExtResource("7_n5dtx")]
+transform = Transform3D(-0.0230538, 0.116293, 0.992947, 0, -0.993211, 0.116324, 0.999734, 0.00268171, 0.0228973, 3.20037, 1.04514, -2.35232)
+
+[node name="shoe1" parent="obstacles" instance=ExtResource("7_n5dtx")]
+transform = Transform3D(-0.0169987, 0, 0.999856, 0, 1, 0, -0.999856, 0, -0.0169987, -4.4812, 0.216251, 1.45101)
 
 [node name="obstacle15" parent="obstacles" instance=ExtResource("7_d4kxs")]
 transform = Transform3D(-0.2, 0, -3.92589e-07, 0, 1, 0, 3.01992e-08, 0, -2.6, -6.52925, -0.232561, -2.60491)
