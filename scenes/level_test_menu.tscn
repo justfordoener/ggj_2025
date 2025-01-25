@@ -10,7 +10,7 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
 
-[node name="level_test" type="Node3D"]
+[node name="level_test2" type="Node3D"]
 
 [node name="Game UI" parent="." instance=ExtResource("1_eowpd")]
 
