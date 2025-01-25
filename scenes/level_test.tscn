@@ -13,46 +13,54 @@
 [node name="level_test" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
 mesh = SubResource("PlaneMesh_b2i4f")
 
 [node name="bubbles" type="Node3D" parent="."]
 
 [node name="bubble" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3433, 0, 2.30062)
+transform = Transform3D(0.998632, -0.0522837, 0, 0.0522837, 0.998632, 0, 0, 0, 1, 6.854, 0, 0.117)
 start_scale = 0.0
 max_scale = 0.5
 spawn_time = 2.0
 
 [node name="bubble2" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66472, 0, -1.63689)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23002, 0, 1.99015)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.04
 spawn_time = 4.0
 
 [node name="bubble3" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71344, -1.19209e-07, 2.85905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.93345, 3.57628e-07, 3.45628)
 start_scale = 0.0
 max_scale = 0.5
 spawn_time = 8.0
 
 [node name="bubble4" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37823, 0, -2.98006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.832, 0, -1.14492)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.1
 spawn_time = 10.0
 
 [node name="bubble5" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24825, 0, 2.8293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67575, 0, 2.06806)
+start_scale = 0.0
+max_scale = 0.5
+growth_rate = 0.4
+spawn_time = 11.0
+
+[node name="bubble6" parent="bubbles" instance=ExtResource("1_0fb2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40873, -4.76837e-07, -3.07349)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.4
 spawn_time = 11.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.214735, 0.976672, 0, -0.976672, 0.214735, 0, 2.5, 1.7)
+transform = Transform3D(0.999945, 0.0103314, -0.00192332, 0, 0.183018, 0.98311, 0.0105089, -0.983055, 0.183008, 0, 3.2, 1.5)
+visible = false
 fov = 112.5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -63,6 +71,8 @@ transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 
 [node name="spider1" parent="spiders" instance=ExtResource("2_cnn5f")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, -0.4)
 collision_layer = 1
+speed = 1.0
+lose_air_rate = 0.5
 
 [node name="spider2" parent="spiders" instance=ExtResource("4_m6k3c")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, 0.4)
@@ -85,22 +95,46 @@ start_time_seconds = 30
 [node name="obstacles" type="Node3D" parent="."]
 
 [node name="obstacle" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 0.2, 2.50242, 0.216251, -0.225246)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 0.2, 2.502, -0.1, -0.225)
 
 [node name="obstacle2" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(0.1692, 0, 0.79978, 0, 1, 0, -0.106637, 0, 1.269, -0.011177, 0.216251, 2.47249)
+transform = Transform3D(0.173205, 0, 1.5, 0, 1, 0, -0.1, 0, 2.59808, -5.07073, 0.216251, 1.54963)
 
 [node name="obstacle3" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 4, -2.53642, 0.502239, 5.96046e-08)
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 4, 5.565, 0.0237184, -0.742)
 
 [node name="obstacle4" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1.5, -0.011177, 0.216251, -2.64869)
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1.5, -0.011, -0.1, -2.649)
 
 [node name="obstacle5" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 2, 0.269199, 2.162)
+transform = Transform3D(-8.74228e-09, 0, -2.5, 0, 1, 0, 0.2, 0, -1.09278e-07, -2.669, 0, 0.064)
 
 [node name="obstacle6" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, -2.01811, 0.216251, 1.88915)
+transform = Transform3D(6.48538, 0, 0, 0, 1, 0, 0, 0, 0.2, -3.42137, -0.12028, 2.85448)
 
 [node name="obstacle7" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(1.6631, 0, -0.166455, 0, 0.3, 0, 2.49682, 0, 0.110873, 0.754514, 0.857432, -1.32278)
+transform = Transform3D(1.92411, 0, -0.153446, 0, 0.2, 0, 2.3017, 0, 0.128274, 0.754514, 0.508331, -1.32278)
+
+[node name="obstacle8" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(4.00493, 0, 0, 0, -1.72967, 0, 0, 0, 0.20221, 5.94995, -0.356434, 1.1693)
+
+[node name="obstacle9" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71253, 0.216251, -2.01473)
+
+[node name="obstacle10" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(2.56425, 0, 0, 0, 1, 0, 0, 0, 0.2, -3.87134, 0.216251, 1.49648)
+
+[node name="obstacle11" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.173205, 0, 2, 0, 1, 0, -0.1, 0, 3.4641, -2.11378, -0.307754, 1.15846)
+
+[node name="obstacle12" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 2.5, 3.21397, -0.176859, 1.91987)
+
+[node name="obstacle13" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(-8.74228e-09, 0, 5, 0, 1, 0, -0.2, 0, -2.18557e-07, 3.4469, -0.14623, 3.1525)
+
+[node name="obstacle14" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.86974, 0.300866, 2.28676)
+
+[node name="obstacle15" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(-0.2, 0, -3.92589e-07, 0, 1, 0, 3.01992e-08, 0, -2.6, -6.52925, -0.232561, -2.60491)
