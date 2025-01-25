@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://di84clpo2d0hf"]
+[gd_scene load_steps=11 format=3 uid="uid://di84clpo2d0hf"]
 
 [ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="1_0fb2n"]
 [ext_resource type="PackedScene" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="6_o1v6f"]
 [ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacle.tscn" id="7_d4kxs"]
+[ext_resource type="PackedScene" uid="uid://ceipxs5377pau" path="res://scenes/spawner.tscn" id="8_aprab"]
+[ext_resource type="PackedScene" uid="uid://nn6kq63s4w8e" path="res://scenes/bubble_spawn_point.tscn" id="9_xtpyf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
 
@@ -22,41 +24,35 @@ mesh = SubResource("PlaneMesh_b2i4f")
 transform = Transform3D(0.998632, -0.0522837, 0, 0.0522837, 0.998632, 0, 0, 0, 1, 6.854, 0, 0.117)
 start_scale = 0.0
 max_scale = 0.5
-spawn_time = 2.0
 
 [node name="bubble2" parent="bubbles" instance=ExtResource("1_0fb2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23002, 0, 1.99015)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.04
-spawn_time = 4.0
 
 [node name="bubble3" parent="bubbles" instance=ExtResource("1_0fb2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.93345, 3.57628e-07, 3.45628)
 start_scale = 0.0
 max_scale = 0.5
-spawn_time = 8.0
 
 [node name="bubble4" parent="bubbles" instance=ExtResource("1_0fb2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.832, 0, -1.14492)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.1
-spawn_time = 10.0
 
 [node name="bubble5" parent="bubbles" instance=ExtResource("1_0fb2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67575, 0, 2.06806)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.4
-spawn_time = 11.0
 
 [node name="bubble6" parent="bubbles" instance=ExtResource("1_0fb2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40873, -4.76837e-07, -3.07349)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.4
-spawn_time = 11.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.999945, 0.0103314, -0.00192332, 0, 0.183018, 0.98311, 0.0105089, -0.983055, 0.183008, 0, 3.2, 1.5)
@@ -138,3 +134,12 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.86974, 0.300866, 2.28
 
 [node name="obstacle15" parent="obstacles" instance=ExtResource("7_d4kxs")]
 transform = Transform3D(-0.2, 0, -3.92589e-07, 0, 1, 0, 3.01992e-08, 0, -2.6, -6.52925, -0.232561, -2.60491)
+
+[node name="spawner" parent="." instance=ExtResource("8_aprab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21712, 0, 0)
+
+[node name="spawn_points" type="Node3D" parent="spawner"]
+
+[node name="bubble_spawn_point" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.18955, 0, 1.4631)
+cooldown = 5.0
