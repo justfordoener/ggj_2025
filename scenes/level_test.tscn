@@ -1,58 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://di84clpo2d0hf"]
+[gd_scene load_steps=10 format=3 uid="uid://di84clpo2d0hf"]
 
-[ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="1_0fb2n"]
 [ext_resource type="PackedScene" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
 [ext_resource type="PackedScene" path="res://scenes/spider_2.tscn" id="3_0s65w"]
 [ext_resource type="PackedScene" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
 [ext_resource type="PackedScene" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="6_o1v6f"]
 [ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacle.tscn" id="7_d4kxs"]
+[ext_resource type="PackedScene" uid="uid://ceipxs5377pau" path="res://scenes/spawner.tscn" id="8_aprab"]
+[ext_resource type="PackedScene" uid="uid://nn6kq63s4w8e" path="res://scenes/bubble_spawn_point.tscn" id="9_xtpyf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
 
 [node name="level_test" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
 mesh = SubResource("PlaneMesh_b2i4f")
 
-[node name="bubbles" type="Node3D" parent="."]
-
-[node name="bubble" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3433, 0, 2.30062)
-start_scale = 0.0
-max_scale = 0.5
-spawn_time = 2.0
-
-[node name="bubble2" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66472, 0, -1.63689)
-start_scale = 0.0
-max_scale = 0.5
-growth_rate = 0.04
-spawn_time = 4.0
-
-[node name="bubble3" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71344, -1.19209e-07, 2.85905)
-start_scale = 0.0
-max_scale = 0.5
-spawn_time = 8.0
-
-[node name="bubble4" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37823, 0, -2.98006)
-start_scale = 0.0
-max_scale = 0.5
-growth_rate = 0.1
-spawn_time = 10.0
-
-[node name="bubble5" parent="bubbles" instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24825, 0, 2.8293)
-start_scale = 0.0
-max_scale = 0.5
-growth_rate = 0.4
-spawn_time = 11.0
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.214735, 0.976672, 0, -0.976672, 0.214735, 0, 2.5, 1.7)
+transform = Transform3D(0.999945, 0.0103314, -0.00192332, 0, 0.183018, 0.98311, 0.0105089, -0.983055, 0.183008, 0, 3.4, 1.5)
+visible = false
 fov = 112.5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -63,20 +30,24 @@ transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 
 [node name="spider1" parent="spiders" instance=ExtResource("2_cnn5f")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, -0.4)
 collision_layer = 1
+speed = 2
 
 [node name="spider2" parent="spiders" instance=ExtResource("4_m6k3c")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, 0.4)
 collision_layer = 1
+speed = 2
 player_num = "2"
 
 [node name="spider3" parent="spiders" instance=ExtResource("5_aehma")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, 0.4)
 collision_layer = 1
+speed = 2
 player_num = "3"
 
 [node name="spider4" parent="spiders" instance=ExtResource("3_0s65w")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, -0.4)
 collision_layer = 1
+speed = 2
 player_num = "4"
 
 [node name="game timer" parent="." instance=ExtResource("6_o1v6f")]
@@ -85,22 +56,99 @@ start_time_seconds = 30
 [node name="obstacles" type="Node3D" parent="."]
 
 [node name="obstacle" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 0.2, 2.50242, 0.216251, -0.225246)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 0.2, 2.502, -0.1, -0.225)
 
 [node name="obstacle2" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(0.1692, 0, 0.79978, 0, 1, 0, -0.106637, 0, 1.269, -0.011177, 0.216251, 2.47249)
+transform = Transform3D(0.173205, 0, 1.5, 0, 1, 0, -0.1, 0, 2.59808, -5.07073, 0.216251, 1.54963)
 
 [node name="obstacle3" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 4, -2.53642, 0.502239, 5.96046e-08)
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 4, 5.565, 0.0237184, -0.742)
 
 [node name="obstacle4" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1.5, -0.011177, 0.216251, -2.64869)
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1.5, -0.011, -0.1, -2.649)
 
 [node name="obstacle5" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 2, 0.269199, 2.162)
+transform = Transform3D(-8.74228e-09, 0, -2.5, 0, 1, 0, 0.2, 0, -1.09278e-07, -2.669, 0, 0.064)
 
 [node name="obstacle6" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, -2.01811, 0.216251, 1.88915)
+transform = Transform3D(6.48538, 0, 0, 0, 1, 0, 0, 0, 0.2, -3.42137, -0.12028, 2.85448)
 
 [node name="obstacle7" parent="obstacles" instance=ExtResource("7_d4kxs")]
-transform = Transform3D(1.6631, 0, -0.166455, 0, 0.3, 0, 2.49682, 0, 0.110873, 0.754514, 0.857432, -1.32278)
+transform = Transform3D(1.92411, 0, -0.153446, 0, 0.2, 0, 2.3017, 0, 0.128274, 0.754514, 0.508331, -1.32278)
+
+[node name="obstacle8" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(4.00493, 0, 0, 0, -1.72967, 0, 0, 0, 0.20221, 5.94995, -0.356434, 1.1693)
+
+[node name="obstacle9" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71253, 0.216251, -2.01473)
+
+[node name="obstacle10" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(2.56425, 0, 0, 0, 1, 0, 0, 0, 0.2, -3.87134, 0.216251, 1.49648)
+
+[node name="obstacle11" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.173205, 0, 2, 0, 1, 0, -0.1, 0, 3.4641, -2.11378, -0.307754, 1.15846)
+
+[node name="obstacle12" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 2.5, 3.21397, -0.176859, 1.91987)
+
+[node name="obstacle13" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(-8.74228e-09, 0, 5, 0, 1, 0, -0.2, 0, -2.18557e-07, 3.4469, -0.14623, 3.1525)
+
+[node name="obstacle14" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.86974, 0.300866, 2.28676)
+
+[node name="obstacle15" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(-0.2, 0, -3.92589e-07, 0, 1, 0, 3.01992e-08, 0, -2.6, -6.52925, -0.232561, -2.60491)
+
+[node name="obstacle16" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(16, 0, 0, 0, 0.1, 0, 0, 0, 0.2, -0.011, 0, 4.092)
+
+[node name="obstacle17" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(16, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0.091, 0, -4.11784)
+
+[node name="obstacle18" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 8.4, -7.986, 0, 0)
+
+[node name="obstacle19" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 8.4, 8, 0, 0)
+
+[node name="spawner" parent="." instance=ExtResource("8_aprab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21712, 0, 0)
+
+[node name="spawn_points" type="Node3D" parent="spawner"]
+
+[node name="bubble_spawn_point" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59812, 0, -3.09777)
+cooldown = 20.0
+
+[node name="bubble_spawn_point2" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9697, -4.76837e-07, 1.9454)
+cooldown = 20.0
+
+[node name="bubble_spawn_point3" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.610559, -4.76837e-07, -1.12752)
+growth_rate = 0.05
+cooldown = 10.0
+
+[node name="bubble_spawn_point4" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.93742, 4.76837e-07, 2.01089)
+growth_rate = 0.01
+cooldown = 35.0
+
+[node name="bubble_spawn_point5" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17852, 0, 3.45701)
+cooldown = 20.0
+
+[node name="bubble_spawn_point6" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.59138, 0, 0.138518)
+cooldown = 30.0
+
+[node name="bubble_spawn_point7" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112247, 0, 3.51507)
+growth_rate = 0.03
+cooldown = 25.0
+
+[node name="bubble_spawn_point8" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57506, 0, -2.6214)
+growth_rate = 0.05
+cooldown = 15.0
