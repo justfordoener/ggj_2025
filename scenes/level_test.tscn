@@ -36,6 +36,15 @@ fov = 112.5
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 0.618181, 1.19974, 1.39068)
 
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.826216, 0.270682, -0.494063, 0, 0.877004, 0.480484, 0.563353, -0.396984, 0.724595, -5.03799, 2.64538, 1.39068)
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.724015, -0.33143, 0.604943, 2.91008e-08, 0.877004, 0.480484, -0.689784, -0.347878, 0.634964, 4.18417, 2.64538, 1.39068)
+
+[node name="DirectionalLight3D4" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.859478, -0.24561, 0.448301, -1.30337e-08, 0.877004, 0.480484, -0.511173, 0.412965, -0.753765, 0.406433, 2.64538, -2.62446)
+
 [node name="spiders" type="Node3D" parent="."]
 
 [node name="spider1" parent="spiders" instance=ExtResource("2_cnn5f")]
