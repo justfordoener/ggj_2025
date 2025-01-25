@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://by64pej8avmbc"]
 
-[ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://game_ui.tscn" id="1_eowpd"]
+[ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://scenes/game_ui.tscn" id="1_eowpd"]
 [ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="1_f2rcg"]
 [ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_vwh4k"]
 [ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="3_yao10"]
@@ -24,34 +24,29 @@ mesh = SubResource("PlaneMesh_b2i4f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3433, 0, 2.30062)
 start_scale = 0.0
 max_scale = 0.5
-spawn_time = 2.0
 
 [node name="bubble2" parent="bubbles" instance=ExtResource("1_f2rcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66472, 0, -1.63689)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.04
-spawn_time = 4.0
 
 [node name="bubble3" parent="bubbles" instance=ExtResource("1_f2rcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71344, -1.19209e-07, 2.85905)
 start_scale = 0.0
 max_scale = 0.5
-spawn_time = 8.0
 
 [node name="bubble4" parent="bubbles" instance=ExtResource("1_f2rcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37823, 0, -2.98006)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.1
-spawn_time = 10.0
 
 [node name="bubble5" parent="bubbles" instance=ExtResource("1_f2rcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24825, 0, 2.8293)
 start_scale = 0.0
 max_scale = 0.5
 growth_rate = 0.4
-spawn_time = 11.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.214735, 0.976672, 0, -0.976672, 0.214735, 0, 2.5, 1.7)
