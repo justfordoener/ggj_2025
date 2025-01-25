@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://e8wwnl7cydq2"]
+[gd_scene load_steps=4 format=3 uid="uid://b7n08dp5grtyk"]
 
 [ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="1_2a8fm"]
 [ext_resource type="Script" path="res://scripts/game_ui.gd" id="1_3hxp1"]
-[ext_resource type="PackedScene" uid="uid://c6h33shxoj586" path="res://scenes/overlaid_game_end.tscn" id="2_msr2h"]
+[ext_resource type="PackedScene" uid="uid://chu8ewwjtgo7h" path="res://scenes/overlaid_game_end.tscn" id="2_msr2h"]
 
 [node name="Game UI" type="Control"]
 layout_mode = 3
