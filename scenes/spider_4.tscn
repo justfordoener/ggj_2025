@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://csrdby87501h7"]
+[gd_scene load_steps=4 format=3 uid="uid://csrdby87501h7"]
 
 [ext_resource type="PackedScene" uid="uid://fmpob7r38tkr" path="res://scenes/spider.tscn" id="1_7bssd"]
+[ext_resource type="Texture2D" uid="uid://cra0byve4sel5" path="res://textures/brown.png" id="2_ynyaq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8x6eh"]
+albedo_texture = ExtResource("2_ynyaq")
 
 [node name="spider" instance=ExtResource("1_7bssd")]
 player_num = "4"
 spider_name = "blue"
 color = Color(0.287481, 0.45811, 0.853653, 1)
+
+[node name="geo_spider_low" parent="Ctrl_Global/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_8x6eh")

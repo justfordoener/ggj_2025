@@ -22,10 +22,6 @@ func _ready():
 	has_spawned = true
 	# bubble style
 	var bubble = $MeshInstance3D
-	var material_bubble = StandardMaterial3D.new()
-	material_bubble.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material_bubble.albedo_color = Color(1, 1, 1, 0.3)
-	bubble.set_surface_override_material(0, material_bubble)
 
 func _process(delta: float):
 	if not has_spawned:

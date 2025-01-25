@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgrfa40y3gln3"]
+[gd_scene load_steps=5 format=3 uid="uid://dgrfa40y3gln3"]
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_yxin3"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_840dg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mab6"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.180392, 1, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o55fl"]
 
@@ -11,6 +16,7 @@ script = ExtResource("1_yxin3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_840dg")
+surface_material_override/0 = SubResource("StandardMaterial3D_2mab6")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
