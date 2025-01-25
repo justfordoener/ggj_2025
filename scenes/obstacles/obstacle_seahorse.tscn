@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://sx6v0cpgawxg"]
+
+[ext_resource type="PackedScene" uid="uid://ble2mlmjrw07v" path="res://textures/Seahorse.fbx" id="1_45e15"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_270m7"]
+size = Vector3(0.194458, 0.42334, 0.816528)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103821, 0.0358887, 0.138245)
+shape = SubResource("BoxShape3D_270m7")
+
+[node name="Seahorse" parent="StaticBody3D" instance=ExtResource("1_45e15")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0898716, 0, 0.566632)

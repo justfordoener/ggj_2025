@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ot2g83xcslup"]
+
+[ext_resource type="PackedScene" uid="uid://cah3le1m02vpg" path="res://textures/Boot.fbx" id="1_2yq8y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qs2ch"]
+size = Vector3(0.578125, 0.674866, 1.92767)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wv8f1"]
+size = Vector3(1, 1, 0.692261)
+
+[node name="obstacle" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011177, 0.216251, 5.96046e-08)
+collision_mask = 0
+
+[node name="lower_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.210938, -0.162567, 0.479553)
+shape = SubResource("BoxShape3D_qs2ch")
+
+[node name="Boot" parent="." instance=ExtResource("1_2yq8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.158969, -0.418377, 0.5)
+
+[node name="upper_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573757, 0.0067749)
+shape = SubResource("BoxShape3D_wv8f1")

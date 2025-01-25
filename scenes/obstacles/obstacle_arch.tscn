@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvpbllrv5xokh"]
+
+[ext_resource type="ArrayMesh" uid="uid://jgldrwsg5foq" path="res://textures/archway_3.obj" id="1_idbw5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_el1qd"]
+size = Vector3(0.79834, 1.85754, 0.808594)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Archway3" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.0431261, -2.38419e-07, 0.338199)
+mesh = ExtResource("1_idbw5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87557, 0.666323, 0.380251)
+shape = SubResource("BoxShape3D_el1qd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83447, 0.745708, 0.380251)
+shape = SubResource("BoxShape3D_el1qd")
