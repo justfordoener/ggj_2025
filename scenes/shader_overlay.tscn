@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmfbanwp6ee5l"]
+
+[ext_resource type="Shader" path="res://scenes/water_shader.gdshader" id="1_n0mbw"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k5qo6"]
+noise_type = 2
+frequency = 0.0058
+fractal_type = 2
+fractal_gain = 0.98
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ba3j5"]
+seamless = true
+seamless_blend_skirt = 0.654
+noise = SubResource("FastNoiseLite_k5qo6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3i5j3"]
+shader = ExtResource("1_n0mbw")
+shader_parameter/color = Color(0.676459, 0.828294, 0.974448, 1)
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/strength = 2.0
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_ba3j5")
+
+[node name="ShaderOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3i5j3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.78806, 0.000500175, 0.791204, 1)
