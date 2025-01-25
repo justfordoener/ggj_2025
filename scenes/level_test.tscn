@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://di84clpo2d0hf"]
+[gd_scene load_steps=22 format=3 uid="uid://di84clpo2d0hf"]
 
-[ext_resource type="PackedScene" uid="uid://b7n08dp5grtyk" path="res://scenes/game_ui.tscn" id="1_gln4i"]
+[ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://scenes/game_ui.tscn" id="1_gln4i"]
 [ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
 [ext_resource type="PackedScene" uid="uid://co4s3n8sk0r7a" path="res://scenes/spider_2.tscn" id="3_0s65w"]
 [ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
 [ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" uid="uid://iw5qqw6a0y7v" path="res://scenes/obstacles/obstacle_stone1.tscn" id="6_g6ow1"]
-[ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="6_o1v6f"]
 [ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacles/obstacle.tscn" id="7_d4kxs"]
 [ext_resource type="PackedScene" uid="uid://ot2g83xcslup" path="res://scenes/obstacles/obstacle_shoe.tscn" id="7_n5dtx"]
 [ext_resource type="PackedScene" uid="uid://ceipxs5377pau" path="res://scenes/spawner.tscn" id="8_aprab"]
@@ -17,10 +16,48 @@
 [ext_resource type="PackedScene" uid="uid://cednvb5q0aw6y" path="res://scenes/obstacles/obstacle_shark.tscn" id="12_3kosd"]
 [ext_resource type="PackedScene" uid="uid://sx6v0cpgawxg" path="res://scenes/obstacles/obstacle_seahorse.tscn" id="13_ixkka"]
 [ext_resource type="PackedScene" uid="uid://cvpbllrv5xokh" path="res://scenes/obstacles/obstacle_arch.tscn" id="14_o2ktx"]
+[ext_resource type="Shader" path="res://scenes/water_shader.gdshader" id="18_lc81m"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k5qo6"]
+noise_type = 2
+frequency = 0.0058
+fractal_type = 2
+fractal_gain = 0.98
+fractal_weighted_strength = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ba3j5"]
+seamless = true
+seamless_blend_skirt = 0.654
+noise = SubResource("FastNoiseLite_k5qo6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3i5j3"]
+shader = ExtResource("18_lc81m")
+shader_parameter/color = Color(0.676459, 0.828294, 0.974448, 1)
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/strength = 2.0
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_ba3j5")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
 
 [node name="level_test" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_3i5j3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.78806, 0.000500175, 0.791204, 1)
 
 [node name="Game UI" parent="." instance=ExtResource("1_gln4i")]
 
@@ -60,10 +97,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, -0.4)
 collision_layer = 1
 speed = 2
 player_num = "4"
-
-[node name="game timer" parent="." instance=ExtResource("6_o1v6f")]
-visible = false
-start_time_seconds = 30
 
 [node name="obstacles" type="Node3D" parent="."]
 
