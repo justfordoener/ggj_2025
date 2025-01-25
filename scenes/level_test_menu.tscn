@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://by64pej8avmbc"]
+[gd_scene load_steps=9 format=3 uid="uid://by64pej8avmbc"]
 
 [ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://game_ui.tscn" id="1_eowpd"]
 [ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="1_f2rcg"]
-[ext_resource type="Script" path="res://game_ui.gd" id="2_beu7w"]
 [ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_vwh4k"]
 [ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="3_yao10"]
 [ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="4_pk4o8"]
@@ -14,7 +13,6 @@
 [node name="level_test" type="Node3D"]
 
 [node name="Game UI" parent="." instance=ExtResource("1_eowpd")]
-script = ExtResource("2_beu7w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
