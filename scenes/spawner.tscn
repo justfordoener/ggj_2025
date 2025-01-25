@@ -1,21 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn0fer5ytrkog"]
+[gd_scene load_steps=2 format=3 uid="uid://ceipxs5377pau"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_11jpt"]
-[ext_resource type="PackedScene" uid="uid://nn6kq63s4w8e" path="res://scenes/bubble_spawn_point.tscn" id="2_s073q"]
 
 [node name="spawner" type="Node3D"]
 script = ExtResource("1_11jpt")
-
-[node name="spawn_points" type="Node3D" parent="."]
-
-[node name="bubble_spawn_point" parent="spawn_points" instance=ExtResource("2_s073q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.561324, 0, -0.249497)
-
-[node name="bubble_spawn_point2" parent="spawn_points" instance=ExtResource("2_s073q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.146655, 0, -0.0202771)
-
-[node name="bubble_spawn_point3" parent="spawn_points" instance=ExtResource("2_s073q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223154, 0, 0.224129)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.812122)
