@@ -21,6 +21,8 @@ var direction : Vector3 = Vector3.ZERO
 var air : float = 10
 var max_air : float = 10
 
+signal spider_died(name)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	anim_player.play("Air")
@@ -73,14 +75,19 @@ func add_air(value : float):
 func _lose_air(delta : float):
 	air -= lose_air_rate * delta
 	if air <= 0:
-		queue_free()
-		print(spider_name + " di(e)d!")
+		_die()
 	anim_player.seek(11 - air, true) 
 	if air < 5:
 		breath.scale = Vector3(air, air, air)
 	else:
 		breath.scale = Vector3(5, 5, 5)
 
+func _die():
+	queue_free()
+	print(spider_name + " di(e)d!")
+	emit_signal("spider_died", spider_name)
+	
+	
 func _on_area_entered(area: Area3D) -> void:
 	if area.collision_layer & 4:
 		var collided_bubble = area.get_parent()

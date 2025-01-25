@@ -18,7 +18,7 @@ func _ready():
 	timer.wait_time = time_to_pop 
 	timer.one_shot = true
 	scale = Vector3.ONE * start_scale			# small starting bubble
-	await get_tree().create_timer(cooldown).timeout
+	# await get_tree().create_timer(cooldown).timeout
 	has_spawned = true
 	# bubble style
 	var bubble = $MeshInstance3D

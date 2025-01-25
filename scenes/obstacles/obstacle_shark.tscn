@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cednvb5q0aw6y"]
+
+[ext_resource type="PackedScene" uid="uid://t2qkqttgvbmf" path="res://textures/megalodon shark.fbx" id="1_dmkve"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5p6mj"]
+size = Vector3(2.46864, 1, 0.601547)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106167, 0, 0.0547256)
+shape = SubResource("BoxShape3D_5p6mj")
+
+[node name="megalodon shark" parent="StaticBody3D" instance=ExtResource("1_dmkve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171292, 2.38419e-07, -0.879139)
+
+[node name="Light" parent="StaticBody3D/megalodon shark" index="1"]
+transform = Transform3D(-0.290865, -0.771101, 0.566393, -0.055189, 0.604525, 0.794672, -0.955171, 0.199884, -0.218391, 19.6001, 5.90386, 19.7828)
+layers = 0
+light_color = Color(0, 0, 0, 1)
+light_energy = 0.0
+
+[editable path="StaticBody3D/megalodon shark"]

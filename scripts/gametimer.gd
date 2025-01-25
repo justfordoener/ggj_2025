@@ -1,6 +1,6 @@
 extends Control
 
-signal timer_finished
+signal ambulance_is_there
 
 @onready var timer : Timer = $Timer
 @onready var label : Label= $TimerLabel
@@ -22,3 +22,4 @@ func _process(delta):
 
 func _on_timer_timeout():
 	print("you won nice job bro")
+	emit_signal("ambulance_is_there")

@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://by64pej8avmbc"]
+
+[ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://scenes/game_ui.tscn" id="1_eowpd"]
+[ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="1_f2rcg"]
+[ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_vwh4k"]
+[ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="3_yao10"]
+[ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="4_pk4o8"]
+[ext_resource type="PackedScene" uid="uid://co4s3n8sk0r7a" path="res://scenes/spider_2.tscn" id="5_dofmg"]
+[ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacle.tscn" id="7_d5vpw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
+
+[node name="level_test2" type="Node3D"]
+
+[node name="Game UI" parent="." instance=ExtResource("1_eowpd")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
+mesh = SubResource("PlaneMesh_b2i4f")
+
+[node name="bubbles" type="Node3D" parent="."]
+
+[node name="bubble" parent="bubbles" instance=ExtResource("1_f2rcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3433, 0, 2.30062)
+start_scale = 0.0
+max_scale = 0.5
+
+[node name="bubble2" parent="bubbles" instance=ExtResource("1_f2rcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66472, 0, -1.63689)
+start_scale = 0.0
+max_scale = 0.5
+growth_rate = 0.04
+
+[node name="bubble3" parent="bubbles" instance=ExtResource("1_f2rcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71344, -1.19209e-07, 2.85905)
+start_scale = 0.0
+max_scale = 0.5
+
+[node name="bubble4" parent="bubbles" instance=ExtResource("1_f2rcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37823, 0, -2.98006)
+start_scale = 0.0
+max_scale = 0.5
+growth_rate = 0.1
+
+[node name="bubble5" parent="bubbles" instance=ExtResource("1_f2rcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24825, 0, 2.8293)
+start_scale = 0.0
+max_scale = 0.5
+growth_rate = 0.4
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.214735, 0.976672, 0, -0.976672, 0.214735, 0, 2.5, 1.7)
+fov = 112.5
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 0.618181, 1.19974, 1.39068)
+
+[node name="spiders" type="Node3D" parent="."]
+
+[node name="spider1" parent="spiders" instance=ExtResource("2_vwh4k")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, -0.4)
+collision_layer = 1
+
+[node name="spider2" parent="spiders" instance=ExtResource("3_yao10")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, 0.4)
+collision_layer = 1
+player_num = "2"
+
+[node name="spider3" parent="spiders" instance=ExtResource("4_pk4o8")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, 0.4)
+collision_layer = 1
+player_num = "3"
+
+[node name="spider4" parent="spiders" instance=ExtResource("5_dofmg")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, -0.4)
+collision_layer = 1
+player_num = "4"
+
+[node name="obstacles" type="Node3D" parent="."]
+
+[node name="obstacle" parent="obstacles" instance=ExtResource("7_d5vpw")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 0.2, 2.50242, 0.216251, -0.225246)
+
+[node name="obstacle2" parent="obstacles" instance=ExtResource("7_d5vpw")]
+transform = Transform3D(0.1692, 0, 0.79978, 0, 1, 0, -0.106637, 0, 1.269, -0.011177, 0.216251, 2.47249)
+
+[node name="obstacle3" parent="obstacles" instance=ExtResource("7_d5vpw")]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 4, -2.53642, 0.502239, 5.96046e-08)
+
+[node name="obstacle4" parent="obstacles" instance=ExtResource("7_d5vpw")]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1.5, -0.011177, 0.216251, -2.64869)
+
+[node name="obstacle5" parent="obstacles" instance=ExtResource("7_d5vpw")]
+transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 2, 0.269199, 2.162)
+
+[node name="obstacle6" parent="obstacles" instance=ExtResource("7_d5vpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, -2.01811, 0.216251, 1.88915)
+
+[node name="obstacle7" parent="obstacles" instance=ExtResource("7_d5vpw")]
+transform = Transform3D(1.6631, 0, -0.166455, 0, 0.3, 0, 2.49682, 0, 0.110873, 0.754514, 0.857432, -1.32278)

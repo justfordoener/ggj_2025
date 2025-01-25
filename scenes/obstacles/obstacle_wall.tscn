@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://chcdcapoxuc3y"]
+
+[ext_resource type="PackedScene" uid="uid://bvsxch0cylama" path="res://textures/Wall_Dont_hate_me_hate_the_mesh.fbx" id="1_syf7q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1pm4"]
+size = Vector3(21.8225, 7.59766, 1.9624)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Wall_Dont_hate_me_hate_the_mesh" parent="." instance=ExtResource("1_syf7q")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.569139, 0, -0.414366)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228882, 3.29883, -0.481201)
+shape = SubResource("BoxShape3D_j1pm4")
