@@ -19,3 +19,5 @@ start_time_seconds = 30
 
 [node name="game over menu" parent="." instance=ExtResource("2_msr2h")]
 layout_mode = 1
+
+[connection signal="timer_finished" from="game timer" to="." method="_on_game_timer_finished"]

@@ -18,9 +18,10 @@ func _ready():
 func _on_spider_died(name):
 	print("UI received signal: Spider " + name + " died!")
 	game_over_menu.visible = true
+	game_over_menu._set_text(name)
+
+func _on_game_timer_finished():
+	print("UI received signal: Timer is finished!")
 	
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	game_over_menu.visible = true
+	game_over_menu.set_text()
