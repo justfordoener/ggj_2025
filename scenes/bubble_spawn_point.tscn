@@ -7,9 +7,11 @@
 
 [node name="bubble_spawn_point" type="Node3D"]
 script = ExtResource("1_q0oaw")
+start_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+visible = false
 mesh = SubResource("PrismMesh_ig1hx")
 
 [node name="bubble" parent="." instance=ExtResource("2_sxchc")]

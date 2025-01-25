@@ -1,11 +1,14 @@
 extends Node3D
 
+@export var starting_time : int
 
 @onready var bubble = preload(r"res://scenes/bubble.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+func _ready() -> void: 
+	for point in $"spawn_points".get_children():
+		starting_time = randi_range(0, 10)
+		point.set_time(starting_time)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
