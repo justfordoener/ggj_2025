@@ -1,6 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dgweq45mcf7xq"]
-
-[ext_resource type="Texture2D" uid="uid://c3edev7hqvo7v" path="res://textures/denizkaya_DefaultMaterial_Roughness.png" id="1_uxj0x"]
+[gd_scene load_steps=6 format=4 uid="uid://dgweq45mcf7xq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qs2ch"]
 size = Vector3(0.481956, 0.501831, 0.857914)
@@ -48,8 +46,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ab4vy")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgrf7"]
-albedo_texture = ExtResource("1_uxj0x")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78l4q"]
+albedo_color = Color(0.470588, 0.470588, 0.470588, 1)
 
 [node name="obstacle" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011177, 0.216251, 5.96046e-08)
@@ -63,4 +61,4 @@ shape = SubResource("BoxShape3D_qs2ch")
 transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -0.0511142, -0.218126, -0.0344394)
 mesh = SubResource("ArrayMesh_tyykr")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_tgrf7")
+surface_material_override/0 = SubResource("StandardMaterial3D_78l4q")

@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://iw5qqw6a0y7v"]
-
-[ext_resource type="Texture2D" uid="uid://c3edev7hqvo7v" path="res://textures/denizkaya_DefaultMaterial_Roughness.png" id="1_ukafn"]
+[gd_scene load_steps=6 format=4 uid="uid://iw5qqw6a0y7v"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ccmfe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5httq"]
 resource_name = "standardSurface1"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.665185, 0.665185, 0.665185, 1)
-albedo_texture = ExtResource("1_ukafn")
+albedo_color = Color(0.470588, 0.470588, 0.470588, 1)
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -48,9 +45,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4657o")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cj0cg"]
-albedo_texture = ExtResource("1_ukafn")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_qs2ch"]
 size = Vector3(0.789429, 0.517334, 0.544006)
 
@@ -63,7 +57,6 @@ physics_material_override = SubResource("PhysicsMaterial_ccmfe")
 transform = Transform3D(17.3853, 0, 17.9653, 0, 25, 0, -17.9653, 0, 17.3853, 0.0132242, -0.216251, -0.0144069)
 mesh = SubResource("ArrayMesh_v7a35")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_cj0cg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00518799, -0.126831, 0.00839233)
