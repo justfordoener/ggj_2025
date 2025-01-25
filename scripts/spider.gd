@@ -1,6 +1,6 @@
 """Spider 3 - (Wise William)"""
 
-extends Node3D
+extends CharacterBody3D
 
 @export var speed = 0.5
 @export var rotation_speed = 1
@@ -9,6 +9,8 @@ extends Node3D
 @export var player_num : String = "1"
 @export var spider_name = "unnamed spider"
 @export var color : Color
+
+@onready var spider_mesh = $Area3D/CollisionShape3D2/geo_spider_low
 @onready var bubble : Node3D = $breath
 @onready var own_area : Area3D = $Area3D
 
@@ -20,9 +22,9 @@ var max_air : float = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Spider has team color
-	var material_spider = ($geo_spider_low.get_active_material(0)).duplicate()
+	var material_spider = (spider_mesh.get_active_material(0)).duplicate()
 	material_spider.albedo_color = color
-	$geo_spider_low.set_surface_override_material(0, material_spider)
+	spider_mesh.set_surface_override_material(0, material_spider)
 	# spider_bubble white
 	var material_bubble = StandardMaterial3D.new()
 	material_bubble.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -37,6 +39,15 @@ func _physics_process(delta: float) -> void:
 	
 
 func _move(delta : float):
+	
+	var dir = Vector3()
+	dir.x = Input.get_axis(player_num + "_move_left", player_num + "_move_right")
+	dir.z = Input.get_axis(player_num + "_move_up", player_num + "_move_down")
+
+	# Limit the input to a length of 1. length_squared is faster to check.
+	if dir.length_squared() > 1:
+		dir /= dir.length()
+	
 	direction = Vector3.ZERO
 	if Input.is_action_pressed(player_num + "_move_right"):
 		direction += Vector3(1,0,0)		
@@ -46,10 +57,14 @@ func _move(delta : float):
 		direction -= Vector3(0,0,1)
 	if Input.is_action_pressed(player_num + "_move_down"):
 		direction += Vector3(0,0,1)	
-	position += direction * speed * delta
+	#position += direction * speed * delta
 	if direction != Vector3.ZERO:
 		look_at(global_position + direction, Vector3.UP)
+		velocity = direction
+	else: 
+		velocity = Vector3.ZERO
 	#rotate_object_local(Vector3(0,1,0), delta * look_around_speed)
+	move_and_slide()
 	
 func add_air(value : float):
 	air += value
@@ -60,13 +75,10 @@ func _lose_air(delta : float):
 		queue_free()
 		print(spider_name + " di(e)d!")
 	bubble.scale = Vector3(air / max_air, air / max_air, air / max_air)
-	
+
 func _on_area_entered(area: Area3D) -> void:
 	if area.collision_layer & 4:
 		var collided_bubble = area.get_parent()
 		var new_air = collided_bubble.absorb_bubble()
 		print(spider_name + " absorbed a bubble.")
 		add_air(new_air)
-	if area.collision_layer & 2:
-		var player = area.get_parent()
-		print("*" + spider_name + " meets " + player.spider_name + "*")

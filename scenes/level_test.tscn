@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbbexnc1jpiu1"]
+[gd_scene load_steps=9 format=3 uid="uid://cbbexnc1jpiu1"]
 
 [ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="1_0fb2n"]
 [ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
 [ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="6_o1v6f"]
+[ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacle.tscn" id="7_d4kxs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
 
@@ -35,15 +36,25 @@ transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 
 
 [node name="spider1" parent="." instance=ExtResource("2_cnn5f")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.150087, 0.1, -0.653281)
+collision_layer = 1
 
-[node name="spider" parent="." instance=ExtResource("3_0s65w")]
+[node name="spider4" parent="." instance=ExtResource("3_0s65w")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.036, 0.1, -0.866616)
+collision_layer = 1
+player_num = "4"
 
 [node name="spider2" parent="." instance=ExtResource("4_m6k3c")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.105021, 0.1, 1.36308)
+collision_layer = 1
+player_num = "2"
 
 [node name="spider3" parent="." instance=ExtResource("5_aehma")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.62931, 0.1, 0.120394)
+collision_layer = 1
+player_num = "3"
 
 [node name="game timer" parent="." instance=ExtResource("6_o1v6f")]
 start_time_seconds = 30
+
+[node name="obstacle" parent="." instance=ExtResource("7_d4kxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00129, 0.216251, 0.422112)

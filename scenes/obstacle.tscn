@@ -4,13 +4,12 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qs2ch"]
 
-[node name="obstacle" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 0.2, -0.011177, 0.216251, 5.96046e-08)
+[node name="obstacle" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011177, 0.216251, 5.96046e-08)
+collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_gsv30")
 
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qs2ch")

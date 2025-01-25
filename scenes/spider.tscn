@@ -3,6 +3,10 @@
 [ext_resource type="Script" path="res://scripts/spider.gd" id="1_8qg34"]
 [ext_resource type="PackedScene" uid="uid://c2q18hxffjxqq" path="res://scenes/breath.tscn" id="2_68h4s"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wh407"]
+margin = 0.0
+radius = 1.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hddct"]
 resource_name = "lambert1"
 vertex_color_use_as_albedo = true
@@ -43,28 +47,28 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v1g0t")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_wh407"]
-margin = 0.0
-radius = 1.0
-
-[node name="spider" type="Node3D"]
+[node name="spider" type="CharacterBody3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
+collision_layer = 2
 script = ExtResource("1_8qg34")
 color = Color(0.905219, 0.000437557, 0.000239884, 1)
 
-[node name="geo_spider_low" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.18557e-06, 0, 50, 0, 50, 0, -50, 0, -2.18557e-06, 0, 0, 0)
-mesh = SubResource("ArrayMesh_3atkg")
-skeleton = NodePath("")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_wh407")
 
 [node name="breath" parent="." instance=ExtResource("2_68h4s")]
 transform = Transform3D(1, 0, 0, 0, 0.929152, -0.369698, 0, 0.369698, 0.929152, 0, 1.294, 1.10945)
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 6
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_wh407")
+
+[node name="geo_spider_low" type="MeshInstance3D" parent="Area3D/CollisionShape3D2"]
+transform = Transform3D(-2.18557e-06, 0, 50, 0, 50, 0, -50, 0, -2.18557e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_3atkg")
+skeleton = NodePath("")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
