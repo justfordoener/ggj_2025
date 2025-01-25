@@ -13,7 +13,7 @@ extends Node3D
 
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
-var air : float = 100
+var air : float = 200
 var max_air : float = 100
 var spider_name : String = "Scared Scooter"
 # Called when the node enters the scene tree for the first time.
@@ -24,9 +24,10 @@ func _ready():
 	$geo_spider_low.set_surface_override_material(0, material_spider)
 	# spider_bubble white
 	var material_bubble = StandardMaterial3D.new()
-	material_bubble.albedo_color = Color(1, 1, 1)
-	$breath/bubble.set_surface_override_material(0, material_bubble)
-
+	material_bubble.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material_bubble.albedo_color = Color(1, 1, 1,0.3)
+	$breath/bubble.set_surface_override_material(0, material_bubble)# spider_bubble white
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	_move(delta)
@@ -59,8 +60,11 @@ func _lose_air(delta : float):
 	
 func _on_area_entered(area: Area3D) -> void:
 	if area.collision_layer & 4:
-		print("collision with bubble")
 		var collided_bubble = area.get_parent()
 		var new_air = collided_bubble.absorb_bubble()
+		print(spider_name + " absorbed a bubble.")
 		add_air(new_air)
+	if area.collision_layer & 2:
+		var player = area.get_parent()
+		print("*" + spider_name + " meets " + player.spider_name + "*")
 	
