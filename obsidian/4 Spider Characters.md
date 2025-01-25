@@ -1,7 +1,15 @@
 #Characters 
-# Eigenschaften
 
-* ängstlich  - Scared Scooter
-* angepisst - Pissed Pete
-* fun fact "did you know" -spinne / überheblich / britisch? - Wise William
-* happy  / gut gelaunt  / grüßt immer zuerst - Happy Humphrey
+## Scared Scooter
+* ängstlich
+* blau
+## Pissed Pete
+* angepisst
+* black
+## Wise William
+* fun fact guy, überheblich
+* red
+## Happy Humphrey
+* gut gelaunt
+* grüßt zuerst
+* yellow

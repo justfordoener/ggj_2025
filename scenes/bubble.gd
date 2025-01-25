@@ -17,6 +17,7 @@ func _ready():
 	scale = Vector3.ONE * start_scale			# small starting bubble
 	await get_tree().create_timer(spawn_time).timeout
 	has_spawned = true
+	
 
 func _process(delta: float):
 	if not has_spawned:
