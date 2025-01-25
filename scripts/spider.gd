@@ -5,22 +5,24 @@ extends CharacterBody3D
 @export var speed = 0.5
 @export var rotation_speed = 1
 @export var look_around_speed = 0.5
-@export var lose_air_rate = 5
+@export var lose_air_rate = 0.7
 @export var player_num : String = "1"
 @export var spider_name = "unnamed spider"
 @export var color : Color
 
 @onready var spider_mesh = $Area3D/CollisionShape3D2/geo_spider_low
-@onready var bubble : Node3D = $breath
+@onready var breath : Node3D = $breath
 @onready var own_area : Area3D = $Area3D
+@onready var anim_player : AnimationPlayer = breath.get_child(0)
 
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
-var air : float = 200
-var max_air : float = 100
+var air : float = 10
+var max_air : float = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	anim_player.play("Air")
 	# Spider has team color
 	var material_spider = (spider_mesh.get_active_material(0)).duplicate()
 	material_spider.albedo_color = color
@@ -29,7 +31,7 @@ func _ready() -> void:
 	var material_bubble = StandardMaterial3D.new()
 	material_bubble.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	material_bubble.albedo_color = Color(1, 1, 1, 0.3)
-	$breath/bubble.set_surface_override_material(0, material_bubble)
+	#1$breath/bubble.set_surface_override_material(0, material_bubble)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,13 +70,19 @@ func _move(delta : float):
 	
 func add_air(value : float):
 	air += value
+	if air > 10:
+		air = 10
 	
 func _lose_air(delta : float):
 	air -= lose_air_rate * delta
 	if air <= 0:
 		queue_free()
 		print(spider_name + " di(e)d!")
-	bubble.scale = Vector3(air / max_air, air / max_air, air / max_air)
+	anim_player.seek(11 - air, true) 
+	if air < 5:
+		breath.scale = Vector3(air, air, air)
+	else:
+		breath.scale = Vector3(5, 5, 5)
 
 func _on_area_entered(area: Area3D) -> void:
 	if area.collision_layer & 4:
