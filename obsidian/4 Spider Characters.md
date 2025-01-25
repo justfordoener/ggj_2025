@@ -11,5 +11,7 @@
 * red
 ## Happy Humphrey
 * gut gelaunt
+* hat ne leichte macke
 * grüßt zuerst
+* redet viel und crazy
 * yellow
