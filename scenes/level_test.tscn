@@ -1,11 +1,15 @@
 [gd_scene load_steps=10 format=3 uid="uid://di84clpo2d0hf"]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 53465ff (fix scene)
 [ext_resource type="PackedScene" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
 [ext_resource type="PackedScene" path="res://scenes/spider_2.tscn" id="3_0s65w"]
 [ext_resource type="PackedScene" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
 [ext_resource type="PackedScene" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="6_o1v6f"]
+<<<<<<< HEAD
 =======
 [ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="1_0fb2n"]
 [ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
@@ -14,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="6_o1v6f"]
 >>>>>>> 8419523 (Add game over menu with restart and main menu)
+=======
+>>>>>>> 53465ff (fix scene)
 [ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacle.tscn" id="7_d4kxs"]
 [ext_resource type="PackedScene" uid="uid://ceipxs5377pau" path="res://scenes/spawner.tscn" id="8_aprab"]
 [ext_resource type="PackedScene" uid="uid://nn6kq63s4w8e" path="res://scenes/bubble_spawn_point.tscn" id="9_xtpyf"]
