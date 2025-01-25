@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg7n5sgmnl2tc"]
+
+[ext_resource type="PackedScene" uid="uid://jcvll6if8ffd" path="res://scenes/ANM_Spider_SwimCycle_Forward.fbx" id="1_lmrem"]
+
+[node name="spider_anim" type="Node3D"]
+
+[node name="ANM_Spider_SwimCycle_Forward" parent="." instance=ExtResource("1_lmrem")]
+
+[node name="Skeleton3D" parent="ANM_Spider_SwimCycle_Forward/Ctrl_Global" index="0"]
+bones/1/position = Vector3(0.0130443, 0.0353595, -2.46519e-34)
+bones/2/rotation = Quaternion(0.0943864, 0.995536, -6.0959e-17, -5.7795e-18)
+bones/3/position = Vector3(0.0918165, -2.66454e-17, -2.11314e-18)
+bones/3/rotation = Quaternion(-7.67236e-28, -1.63003e-27, -0.0943864, 0.995536)
+bones/5/position = Vector3(-0.0792796, 0.0151693, -9.86076e-34)
+bones/5/rotation = Quaternion(-0.0118407, 0.99993, 7.25034e-19, 6.1228e-17)
+bones/7/rotation = Quaternion(0.8583, 0.385844, 0.0704354, -0.330885)
+bones/8/rotation = Quaternion(0.669955, 0.567103, -0.0336214, 0.477937)
+bones/10/rotation = Quaternion(-0.385844, 0.8583, -0.330885, -0.0704354)
+bones/11/rotation = Quaternion(0.669955, 0.567103, -0.0336214, 0.477937)
+bones/13/rotation = Quaternion(0.830698, 0.345099, -0.165021, -0.404494)
+bones/14/rotation = Quaternion(0.234917, 0.221403, 0.113701, 0.93961)
+bones/15/rotation = Quaternion(0.457193, 0.305386, -0.0385396, 0.834403)
+bones/17/rotation = Quaternion(0.72346, 0.510477, -0.22445, -0.40699)
+bones/18/rotation = Quaternion(0.102201, 0.545054, -0.00472275, 0.832135)
+bones/20/rotation = Quaternion(0.483067, 0.517632, 0.701545, -0.0808613)
+bones/21/rotation = Quaternion(0.00322736, 0.411974, -0.00984145, 0.911137)
+bones/23/rotation = Quaternion(-0.0900272, 0.808569, 0.580771, 0.0285586)
+bones/24/rotation = Quaternion(-0.390615, 1.41561e-07, 1.75089e-07, 0.920554)
+bones/26/rotation = Quaternion(-0.198424, 0.873667, -0.425597, 0.127281)
+bones/27/rotation = Quaternion(0.240082, 0.135522, 0.0647179, 0.959065)
+bones/28/rotation = Quaternion(0.505259, 0.182681, -0.0161042, 0.843257)
+bones/30/rotation = Quaternion(-0.452694, 0.725645, -0.482038, 0.190122)
+bones/31/rotation = Quaternion(0.104973, 0.4493, -0.00300151, 0.887187)
+bones/33/rotation = Quaternion(-0.550434, 0.475761, -0.133458, -0.672951)
+bones/34/rotation = Quaternion(0.00320572, 0.359872, -0.00856674, 0.932957)
+bones/36/rotation = Quaternion(0.807282, 0.0768234, -0.00935917, 0.58507)
+bones/37/rotation = Quaternion(-0.390612, 1.11759e-07, 3.95812e-06, 0.920556)
+
+[editable path="ANM_Spider_SwimCycle_Forward"]

@@ -14,6 +14,7 @@ extends CharacterBody3D
 @onready var breath : Node3D = $breath
 @onready var own_area : Area3D = $Area3D
 @onready var anim_player : AnimationPlayer = breath.get_child(0)
+@onready var anim_player_spider : AnimationPlayer = $AnimationPlayer
 
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
@@ -42,14 +43,6 @@ func _physics_process(delta: float) -> void:
 
 func _move(delta : float):
 	
-	var dir = Vector3()
-	dir.x = Input.get_axis(player_num + "_move_left", player_num + "_move_right")
-	dir.z = Input.get_axis(player_num + "_move_up", player_num + "_move_down")
-
-	# Limit the input to a length of 1. length_squared is faster to check.
-	if dir.length_squared() > 1:
-		dir /= dir.length()
-	
 	direction = Vector3.ZERO
 	if Input.is_action_pressed(player_num + "_move_right"):
 		direction += Vector3(1,0,0)		
@@ -59,10 +52,14 @@ func _move(delta : float):
 		direction -= Vector3(0,0,1)
 	if Input.is_action_pressed(player_num + "_move_down"):
 		direction += Vector3(0,0,1)	
-	#position += direction * speed * delta
+	
+	direction = direction.normalized()
+	var current_direction = -transform.basis.z.normalized()
+	var interpolated_direction = lerp(current_direction, direction, 5 * delta)
 	if direction != Vector3.ZERO:
-		look_at(global_position + direction, Vector3.UP)
+		look_at(global_position + interpolated_direction, Vector3.UP)
 		velocity = direction * speed
+		anim_player_spider.play("SwimCycle_Forward")
 	else: 
 		velocity = Vector3.ZERO
 	#rotate_object_local(Vector3(0,1,0), delta * look_around_speed)
