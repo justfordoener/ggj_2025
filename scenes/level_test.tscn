@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://di84clpo2d0hf"]
+[gd_scene load_steps=21 format=3 uid="uid://di84clpo2d0hf"]
 
-[ext_resource type="PackedScene" uid="uid://bt1b8o28tedqq" path="res://scenes/shader_overlay.tscn" id="1_3fdwy"]
-[ext_resource type="PackedScene" uid="uid://b7n08dp5grtyk" path="res://scenes/game_ui.tscn" id="1_gln4i"]
+[ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://scenes/game_ui.tscn" id="1_gln4i"]
+[ext_resource type="PackedScene" uid="uid://bt1b8o28tedqq" path="res://scenes/shader_overlay.tscn" id="2_c4s3v"]
 [ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
 [ext_resource type="PackedScene" uid="uid://co4s3n8sk0r7a" path="res://scenes/spider_2.tscn" id="3_0s65w"]
 [ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
@@ -18,12 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://cednvb5q0aw6y" path="res://scenes/obstacles/obstacle_shark.tscn" id="12_3kosd"]
 [ext_resource type="PackedScene" uid="uid://sx6v0cpgawxg" path="res://scenes/obstacles/obstacle_seahorse.tscn" id="13_ixkka"]
 [ext_resource type="PackedScene" uid="uid://cvpbllrv5xokh" path="res://scenes/obstacles/obstacle_arch.tscn" id="14_o2ktx"]
+[ext_resource type="Script" path="res://scenes/wobbler.gd" id="19_mphuj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
 
 [node name="level_test" type="Node3D"]
 
-[node name="ShaderOverlay" parent="." instance=ExtResource("1_3fdwy")]
+[node name="ShaderOverlay" parent="." instance=ExtResource("2_c4s3v")]
 
 [node name="Game UI" parent="." instance=ExtResource("1_gln4i")]
 
@@ -36,18 +37,46 @@ transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984807, 0.173648, 
 visible = false
 fov = 112.5
 
+[node name="Wobbler" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0.886808, -3.60882)
+script = ExtResource("19_mphuj")
+wobble_speed = 0.16
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 0.618181, 5.50135, 1.39068)
+transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 0.618181, 1.19974, 1.39068)
+
+[node name="Wobbler2" type="Node3D" parent="DirectionalLight3D"]
+transform = Transform3D(1, 0, 0, 0, 0.877004, -0.480484, 0, 0.480484, 0.877004, -0.618181, -0.383977, -1.79609)
+script = ExtResource("19_mphuj")
+wobble_speed = 0.16
+wobble_intensity = 0.4
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.826216, 0.270682, -0.494063, 0, 0.877004, 0.480484, 0.563353, -0.396984, 0.724595, -5.03799, 5.4717, 1.39068)
+transform = Transform3D(0.826216, 0.270682, -0.494063, 0, 0.877004, 0.480484, 0.563353, -0.396984, 0.724595, -5.03799, 2.64538, 1.39068)
+
+[node name="Wobbler3" type="Node3D" parent="DirectionalLight3D2"]
+transform = Transform3D(0.826216, 0, 0.563353, 0.270682, 0.877003, -0.396984, -0.494063, 0.480484, 0.724595, 3.37902, -0.404236, -4.76782)
+script = ExtResource("19_mphuj")
+wobble_speed = 0.16
+wobble_intensity = 0.4
 
 [node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.724015, -0.33143, 0.604943, 2.91008e-08, 0.877004, 0.480484, -0.689784, -0.347878, 0.634964, 4.18417, 5.5754, 1.39068)
+transform = Transform3D(0.724015, -0.33143, 0.604943, 2.91008e-08, 0.877004, 0.480484, -0.689784, -0.347878, 0.634964, 4.18417, 2.64538, 1.39068)
+
+[node name="Wobbler4" type="Node3D" parent="DirectionalLight3D3"]
+transform = Transform3D(0.724015, 2.98023e-08, -0.689784, -0.33143, 0.877004, -0.347878, 0.604943, 0.480484, 0.634964, -2.07013, -0.449462, -4.68528)
+script = ExtResource("19_mphuj")
+wobble_speed = 0.16
+wobble_intensity = 0.4
 
 [node name="DirectionalLight3D4" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.859478, -0.24561, 0.448301, -1.30337e-08, 0.877004, 0.480483, -0.511173, 0.412965, -0.753765, 0.406433, 4.86182, -2.62446)
-visible = false
+transform = Transform3D(-0.859478, -0.24561, 0.448301, -1.30337e-08, 0.877004, 0.480484, -0.511173, 0.412965, -0.753765, 0.406433, 2.64538, -2.62446)
+
+[node name="Wobbler5" type="Node3D" parent="DirectionalLight3D4"]
+transform = Transform3D(-0.859478, 0, -0.511173, -0.24561, 0.877004, 0.412965, 0.448301, 0.480483, -0.753765, -0.992233, -1.13637, -3.43149)
+script = ExtResource("19_mphuj")
+wobble_speed = 0.16
+wobble_intensity = 0.4
 
 [node name="spiders" type="Node3D" parent="."]
 
