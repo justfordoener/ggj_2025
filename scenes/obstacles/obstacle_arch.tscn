@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvpbllrv5xokh"]
+[gd_scene load_steps=5 format=3 uid="uid://cvpbllrv5xokh"]
 
 [ext_resource type="ArrayMesh" uid="uid://jgldrwsg5foq" path="res://textures/archway_3.obj" id="1_idbw5"]
+[ext_resource type="Texture2D" uid="uid://c3edev7hqvo7v" path="res://textures/denizkaya_DefaultMaterial_Roughness.png" id="2_ejbsp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0patc"]
+albedo_texture = ExtResource("2_ejbsp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_el1qd"]
 size = Vector3(0.79834, 1.85754, 0.808594)
@@ -14,6 +18,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.0431261, -2.38419e-07, 0.338199)
 mesh = ExtResource("1_idbw5")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_0patc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87557, 0.666323, 0.380251)
