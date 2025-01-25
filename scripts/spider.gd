@@ -6,19 +6,22 @@ extends Node3D
 @export var rotation_speed = 1
 @export var look_around_speed = 0.5
 @export var lose_air_rate = 5
-
+@export var player_num : String = "1"
+@export var spider_name = "unnamed spider"
+@export var color : Color
 @onready var bubble : Node3D = $breath
 @onready var own_area : Area3D = $Area3D
+
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
 var air : float = 200
 var max_air : float = 100
-var spider_name : String = "Wise William"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Spider has team color
 	var material_spider = ($geo_spider_low.get_active_material(0)).duplicate()
-	material_spider.albedo_color = Color(1, 0, 0)
+	material_spider.albedo_color = color
 	$geo_spider_low.set_surface_override_material(0, material_spider)
 	# spider_bubble white
 	var material_bubble = StandardMaterial3D.new()
@@ -35,13 +38,13 @@ func _physics_process(delta: float) -> void:
 
 func _move(delta : float):
 	direction = Vector3.ZERO
-	if Input.is_key_pressed(KEY_L):
+	if Input.is_action_pressed(player_num + "_move_right"):
 		direction += Vector3(1,0,0)		
-	if Input.is_key_pressed(KEY_J):
+	if Input.is_action_pressed(player_num + "_move_left"):
 		direction -= Vector3(1,0,0)
-	if Input.is_key_pressed(KEY_I):
+	if Input.is_action_pressed(player_num + "_move_up"):
 		direction -= Vector3(0,0,1)
-	if Input.is_key_pressed(KEY_K):
+	if Input.is_action_pressed(player_num + "_move_down"):
 		direction += Vector3(0,0,1)	
 	position += direction * speed * delta
 	if direction != Vector3.ZERO:

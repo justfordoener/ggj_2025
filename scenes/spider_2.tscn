@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://co4s3n8sk0r7a"]
+
+[ext_resource type="PackedScene" uid="uid://fmpob7r38tkr" path="res://scenes/spider.tscn" id="1_e356g"]
+
+[node name="spider" instance=ExtResource("1_e356g")]
+player_num = "2"
+spider_name = "yellow"
+color = Color(0.905882, 0.784314, 0, 1)

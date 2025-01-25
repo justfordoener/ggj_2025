@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://gpf1vbuoivyq"]
+[gd_scene load_steps=8 format=3 uid="uid://gpf1vbuoivyq"]
 
 [ext_resource type="PackedScene" uid="uid://fmpob7r38tkr" path="res://scenes/spider.tscn" id="1_c4o53"]
 [ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="2_1kn2a"]
 [ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="3_1nd2a"]
 [ext_resource type="Script" path="res://scripts/spider2.gd" id="3_escu6"]
-[ext_resource type="Script" path="res://scripts/spider3.gd" id="4_g4sju"]
 [ext_resource type="Script" path="res://scripts/spider4.gd" id="5_mx7ec"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="7_tn7tq"]
 
@@ -31,7 +30,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.774361, 0.0186862, 0.
 script = ExtResource("3_escu6")
 
 [node name="spider3" parent="." instance=ExtResource("1_c4o53")]
-script = ExtResource("4_g4sju")
 
 [node name="spider4" parent="." instance=ExtResource("1_c4o53")]
 script = ExtResource("5_mx7ec")

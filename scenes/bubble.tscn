@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgrfa40y3gln3"]
 
-[ext_resource type="Script" path="res://scenes/bubble.gd" id="1_yxin3"]
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_yxin3"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_840dg"]
 

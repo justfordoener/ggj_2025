@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://fmpob7r38tkr"]
 
-[ext_resource type="Script" path="res://scripts/spider1.gd" id="1_vgied"]
-[ext_resource type="PackedScene" uid="uid://c2q18hxffjxqq" path="res://breath.tscn" id="2_68h4s"]
+[ext_resource type="Script" path="res://scripts/spider.gd" id="1_8qg34"]
+[ext_resource type="PackedScene" uid="uid://c2q18hxffjxqq" path="res://scenes/breath.tscn" id="2_68h4s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hddct"]
 resource_name = "lambert1"
@@ -49,7 +49,8 @@ radius = 1.0
 
 [node name="spider" type="Node3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
-script = ExtResource("1_vgied")
+script = ExtResource("1_8qg34")
+color = Color(0.905219, 0.000437557, 0.000239884, 1)
 
 [node name="geo_spider_low" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.18557e-06, 0, 50, 0, 50, 0, -50, 0, -2.18557e-06, 0, 0, 0)
