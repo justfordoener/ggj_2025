@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbbexnc1jpiu1"]
+[gd_scene load_steps=9 format=3 uid="uid://di84clpo2d0hf"]
 
 [ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="1_0fb2n"]
-[ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
-[ext_resource type="PackedScene" uid="uid://co4s3n8sk0r7a" path="res://scenes/spider_2.tscn" id="3_0s65w"]
-[ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
-[ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="5_aehma"]
+[ext_resource type="PackedScene" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
+[ext_resource type="PackedScene" path="res://scenes/spider_2.tscn" id="3_0s65w"]
+[ext_resource type="PackedScene" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
+[ext_resource type="PackedScene" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="6_o1v6f"]
 [ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacle.tscn" id="7_d4kxs"]
 
@@ -13,48 +13,94 @@
 [node name="level_test" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
 mesh = SubResource("PlaneMesh_b2i4f")
 
-[node name="bubble" parent="." instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.618181, 0, 0.38249)
-spawn_time = 5.0
+[node name="bubbles" type="Node3D" parent="."]
 
-[node name="bubble3" parent="." instance=ExtResource("1_0fb2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05956, -1.19209e-07, 0.951823)
-spawn_time = 15.0
+[node name="bubble" parent="bubbles" instance=ExtResource("1_0fb2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3433, 0, 2.30062)
+start_scale = 0.0
+max_scale = 0.5
+spawn_time = 2.0
 
-[node name="bubble2" parent="." instance=ExtResource("1_0fb2n")]
+[node name="bubble2" parent="bubbles" instance=ExtResource("1_0fb2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66472, 0, -1.63689)
+start_scale = 0.0
+max_scale = 0.5
+growth_rate = 0.04
+spawn_time = 4.0
+
+[node name="bubble3" parent="bubbles" instance=ExtResource("1_0fb2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71344, -1.19209e-07, 2.85905)
+start_scale = 0.0
+max_scale = 0.5
+spawn_time = 8.0
+
+[node name="bubble4" parent="bubbles" instance=ExtResource("1_0fb2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37823, 0, -2.98006)
+start_scale = 0.0
+max_scale = 0.5
+growth_rate = 0.1
 spawn_time = 10.0
 
+[node name="bubble5" parent="bubbles" instance=ExtResource("1_0fb2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24825, 0, 2.8293)
+start_scale = 0.0
+max_scale = 0.5
+growth_rate = 0.4
+spawn_time = 11.0
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999998, 0.00143078, -0.00106267, 0, 0.596254, 0.802796, 0.00178224, -0.802794, 0.596253, 0.314803, 1.828, 2.67595)
+transform = Transform3D(1, 0, 0, 0, 0.214735, 0.976672, 0, -0.976672, 0.214735, 0, 2.5, 1.7)
+fov = 112.5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 0.618181, 1.19974, 1.39068)
 
-[node name="spider1" parent="." instance=ExtResource("2_cnn5f")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.150087, 0.1, -0.653281)
+[node name="spiders" type="Node3D" parent="."]
+
+[node name="spider1" parent="spiders" instance=ExtResource("2_cnn5f")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, -0.4)
 collision_layer = 1
 
-[node name="spider4" parent="." instance=ExtResource("3_0s65w")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.036, 0.1, -0.866616)
-collision_layer = 1
-player_num = "4"
-
-[node name="spider2" parent="." instance=ExtResource("4_m6k3c")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.105021, 0.1, 1.36308)
+[node name="spider2" parent="spiders" instance=ExtResource("4_m6k3c")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, 0.4)
 collision_layer = 1
 player_num = "2"
 
-[node name="spider3" parent="." instance=ExtResource("5_aehma")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.62931, 0.1, 0.120394)
+[node name="spider3" parent="spiders" instance=ExtResource("5_aehma")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, 0.4)
 collision_layer = 1
 player_num = "3"
+
+[node name="spider4" parent="spiders" instance=ExtResource("3_0s65w")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, -0.4)
+collision_layer = 1
+player_num = "4"
 
 [node name="game timer" parent="." instance=ExtResource("6_o1v6f")]
 start_time_seconds = 30
 
-[node name="obstacle" parent="." instance=ExtResource("7_d4kxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00129, 0.216251, 0.422112)
+[node name="obstacles" type="Node3D" parent="."]
+
+[node name="obstacle" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 0.2, 2.50242, 0.216251, -0.225246)
+
+[node name="obstacle2" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.1692, 0, 0.79978, 0, 1, 0, -0.106637, 0, 1.269, -0.011177, 0.216251, 2.47249)
+
+[node name="obstacle3" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 4, -2.53642, 0.502239, 5.96046e-08)
+
+[node name="obstacle4" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1.5, -0.011177, 0.216251, -2.64869)
+
+[node name="obstacle5" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 2, 0.269199, 2.162)
+
+[node name="obstacle6" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, -2.01811, 0.216251, 1.88915)
+
+[node name="obstacle7" parent="obstacles" instance=ExtResource("7_d4kxs")]
+transform = Transform3D(1.6631, 0, -0.166455, 0, 0.3, 0, 2.49682, 0, 0.110873, 0.754514, 0.857432, -1.32278)
