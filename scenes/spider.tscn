@@ -1,7 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://fmpob7r38tkr"]
+[gd_scene load_steps=17 format=4 uid="uid://fmpob7r38tkr"]
 
 [ext_resource type="Script" path="res://scripts/spider.gd" id="1_8qg34"]
 [ext_resource type="PackedScene" uid="uid://p35rchaxsp08" path="res://scenes/breath.tscn" id="2_68h4s"]
+[ext_resource type="Texture2D" uid="uid://b7x6lege1ijlr" path="res://textures/Spider_low_lambert1_BaseColor.png" id="3_n8coa"]
+[ext_resource type="Texture2D" uid="uid://c1igb61y5a66o" path="res://textures/Spider_low_lambert1_Emissive.png" id="4_pd88q"]
+[ext_resource type="Texture2D" uid="uid://bsxm3t4mf3i5i" path="res://textures/Spider_low_lambert1_Metallic.png" id="5_vqxnb"]
+[ext_resource type="Texture2D" uid="uid://jagl3mr3yriu" path="res://textures/Spider_low_lambert1_Normal.png" id="6_lny4g"]
+[ext_resource type="Texture2D" uid="uid://btrqg2tt4cxua" path="res://textures/Spider_low_lambert1_Roughness.png" id="7_aggh2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wh407"]
 margin = 0.0
@@ -51,7 +56,14 @@ shadow_mesh = SubResource("ArrayMesh_v1g0t")
 resource_name = "lambert1"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.665185, 0.665185, 0.665185, 1)
+albedo_texture = ExtResource("3_n8coa")
+metallic = 1.0
+metallic_texture = ExtResource("5_vqxnb")
+roughness_texture = ExtResource("7_aggh2")
 emission_enabled = true
+emission_texture = ExtResource("4_pd88q")
+normal_enabled = true
+normal_texture = ExtResource("6_lny4g")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gfqg7"]
 resource_name = "geo_spider_low"
