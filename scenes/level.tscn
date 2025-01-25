@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://fmpob7r38tkr" path="res://scenes/spider.tscn" id="1_owgxw"]
 [ext_resource type="PackedScene" uid="uid://dgrfa40y3gln3" path="res://scenes/bubble.tscn" id="2_r3a42"]
-[ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="3_0pkff"]
+[ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="3_0pkff"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rwh51"]
 

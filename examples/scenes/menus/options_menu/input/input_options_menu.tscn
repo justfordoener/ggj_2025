@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://8dxrvdwu13af"]
+
+[ext_resource type="PackedScene" uid="uid://dp3rgqaehb3xu" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/input/input_options_menu.tscn" id="1_o7ngi"]
+[ext_resource type="Script" path="res://examples/scenes/menus/options_menu/input/input_options_menu.gd" id="2_ou2u5"]
+
+[node name="Controls" instance=ExtResource("1_o7ngi")]
+script = ExtResource("2_ou2u5")
+
+[node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" index="1"]
+input_action_names = Array[StringName]([&"move_forward", &"move_backward", &"move_up", &"move_down", &"moAdd background music and sound effects to the UI.    Add Music and SFX to the project\'s default audio busses.        Open the Audio bus editor.        Click the button \"Add Bus\" twice (x2).        Name the two new busses Music and SFX.        Save the project.    Add background music to the Main Menu.        Import the music asset into the project.        Open main_menu_with_animations.tscn.        Select the BackgroundMusicPlayer node.        Assign the music asset to the stream property.        Make sure that the bus property is set to Music.        Save the scene.        Optionally, repeat stepve_left", &"move_right", &"interact", &"1", &"2", &"3", &"4"])
+readable_action_names = Array[String](["Move Forward", "Move Backward", "Move Up", "Move Down", "Mo Add Background Music And Sound Effects To The Ui. Add Music And Sfx To The Project's Default Audio Busses. Open The Audio Bus Editor. Click The Button \"add Bus\" Twice (x 2). Name The Two New Busses Music And Sfx. Save The Project. Add Background Music To The Main Menu. Import The Music Asset Into The Project. Open Main Menu With Animations.tscn. Select The Background Music Player Node. Assign The Music Asset To The Stream Property. Make Sure That The Bus Property Is Set To Music. Save The Scene. Optionally, Repeat Stepve Left", "Move Right", "Interact", "Player 1", "Player 2", "Player 3", "Player 4"])
+action_name_map = {
+"1": "Player 1",
+"2": "Player 2",
+"3": "Player 3",
+"4": "Player 4",
+"interact": "Interact",
+"moAdd background music and sound effects to the UI.    Add Music and SFX to the project's default audio busses.        Open the Audio bus editor.        Click the button \"Add Bus\" twice (x2).        Name the two new busses Music and SFX.        Save the project.    Add background music to the Main Menu.        Import the music asset into the project.        Open main_menu_with_animations.tscn.        Select the BackgroundMusicPlayer node.        Assign the music asset to the stream property.        Make sure that the bus property is set to Music.        Save the scene.        Optionally, repeat stepve_left": "Mo Add Background Music And Sound Effects To The Ui. Add Music And Sfx To The Project's Default Audio Busses. Open The Audio Bus Editor. Click The Button \"add Bus\" Twice (x 2). Name The Two New Busses Music And Sfx. Save The Project. Add Background Music To The Main Menu. Import The Music Asset Into The Project. Open Main Menu With Animations.tscn. Select The Background Music Player Node. Assign The Music Asset To The Stream Property. Make Sure That The Bus Property Is Set To Music. Save The Scene. Optionally, Repeat Stepve Left",
+"move_backward": "Move Backward",
+"move_down": "Move Down",
+"move_forward": "Move Forward",
+"move_right": "Move Right",
+"move_up": "Move Up"
+}
