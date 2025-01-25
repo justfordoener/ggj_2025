@@ -2,7 +2,7 @@
 
 extends CharacterBody3D
 
-@export var speed = 0.5
+@export var speed = 1
 @export var rotation_speed = 1
 @export var look_around_speed = 0.5
 @export var lose_air_rate = 0.7
@@ -62,7 +62,7 @@ func _move(delta : float):
 	#position += direction * speed * delta
 	if direction != Vector3.ZERO:
 		look_at(global_position + direction, Vector3.UP)
-		velocity = direction
+		velocity = direction * speed
 	else: 
 		velocity = Vector3.ZERO
 	#rotate_object_local(Vector3(0,1,0), delta * look_around_speed)
