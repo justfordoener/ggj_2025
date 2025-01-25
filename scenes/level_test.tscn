@@ -1,11 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://di84clpo2d0hf"]
+[gd_scene load_steps=19 format=3 uid="uid://di84clpo2d0hf"]
 
-[ext_resource type="PackedScene" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
-[ext_resource type="PackedScene" path="res://scenes/spider_2.tscn" id="3_0s65w"]
-[ext_resource type="PackedScene" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
-[ext_resource type="PackedScene" path="res://scenes/spider_4.tscn" id="5_aehma"]
+[ext_resource type="PackedScene" uid="uid://b7n08dp5grtyk" path="res://scenes/game_ui.tscn" id="1_gln4i"]
+[ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
+[ext_resource type="PackedScene" uid="uid://co4s3n8sk0r7a" path="res://scenes/spider_2.tscn" id="3_0s65w"]
+[ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
+[ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" uid="uid://iw5qqw6a0y7v" path="res://scenes/obstacles/obstacle_stone1.tscn" id="6_g6ow1"]
-[ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="6_o1v6f"]
+[ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="6_o1v6f"]
 [ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacles/obstacle.tscn" id="7_d4kxs"]
 [ext_resource type="PackedScene" uid="uid://ot2g83xcslup" path="res://scenes/obstacles/obstacle_shoe.tscn" id="7_n5dtx"]
 [ext_resource type="PackedScene" uid="uid://ceipxs5377pau" path="res://scenes/spawner.tscn" id="8_aprab"]
@@ -21,12 +22,14 @@
 
 [node name="level_test" type="Node3D"]
 
+[node name="Game UI" parent="." instance=ExtResource("1_gln4i")]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
 mesh = SubResource("PlaneMesh_b2i4f")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999945, 0.0103314, -0.00192332, 0, 0.183018, 0.98311, 0.0105089, -0.983055, 0.183008, 0, 3.4, 1.5)
+transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984807, 0.173648, 0, 3.4, 1.5)
 visible = false
 fov = 112.5
 
@@ -59,6 +62,7 @@ speed = 2
 player_num = "4"
 
 [node name="game timer" parent="." instance=ExtResource("6_o1v6f")]
+visible = false
 start_time_seconds = 30
 
 [node name="obstacles" type="Node3D" parent="."]
