@@ -22,7 +22,8 @@ extends CharacterBody3D
 
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
-
+var is_dead : bool = false
+var velo_len : float
 signal spider_died(name)
 
 # Called when the node enters the scene tree for the first time.
@@ -46,6 +47,10 @@ func _physics_process(delta: float) -> void:
 	
 
 func _move(delta : float):
+	if is_dead:
+		velo_len -= delta * 10
+		blend_tree.set("parameters/blend_position", velo_len)
+		return
 	
 	direction = Vector3.ZERO
 	if Input.is_action_pressed(player_num + "_move_right"):
@@ -69,7 +74,9 @@ func _move(delta : float):
 		velocity = interpolated_velocity
 		#anim_player_spider.play("Idle")
 	#rotate_object_local(Vector3(0,1,0), delta * look_around_speed)
-	blend_tree.set("parameters/blend_position", velocity.length())
+	
+	velo_len = velocity.length()
+	blend_tree.set("parameters/blend_position", velo_len)
 	move_and_slide()
 	
 func add_air(value : float):
@@ -91,7 +98,7 @@ func _lose_air(delta : float):
 		breath.scale = Vector3(1, 1, 1)
 
 func _die():
-	queue_free()
+	is_dead = true
 	print(spider_name + " di(e)d!")
 	emit_signal("spider_died", spider_name)
 	
