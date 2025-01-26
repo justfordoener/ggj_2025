@@ -1,6 +1,10 @@
 [gd_scene load_steps=23 format=3 uid="uid://di84clpo2d0hf"]
 
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://scenes/game_ui.tscn" id="1_gln4i"]
+=======
+[ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://scenes/game_ui.tscn" id="1_gln4i"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" path="res://scenes/shader_overlay.tscn" id="2_c4s3v"]
 [ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
 [ext_resource type="PackedScene" path="res://scenes/spider_2.tscn" id="3_0s65w"]
