@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://77c3tanfys7b"]
+[gd_scene load_steps=20 format=3 uid="uid://f044kv1aghyn"]
 
 [ext_resource type="PackedScene" uid="uid://bt1b8o28tedqq" path="res://scenes/shader_overlay.tscn" id="1_75qjm"]
 [ext_resource type="PackedScene" uid="uid://d050guftxue6e" path="res://examples/scenes/menus/main_menu/main_menu_with_animations.tscn" id="2_gu8rq"]
@@ -26,6 +26,10 @@
 [node name="ShaderOverlay2" parent="." instance=ExtResource("1_75qjm")]
 
 [node name="MainMenu" parent="." instance=ExtResource("2_gu8rq")]
+pvp_1_path = "res://scenes/level_test_pvp_1.tscn"
+coop_1_path = "res://scenes/level_test_coop_1.tscn"
+pvp_2_path = "res://scenes/level_test_pvp_2.tscn"
+coop_2_path = "res://scenes/level_test_coop_2.tscn"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)

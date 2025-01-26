@@ -17,8 +17,8 @@ noise = SubResource("FastNoiseLite_k5qo6")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3i5j3"]
 shader = ExtResource("1_n0mbw")
 shader_parameter/color = Color(0.708622, 0.931398, 0.885421, 0.027451)
-shader_parameter/speed = Vector2(0.02, 0.02)
-shader_parameter/strength = 1.0
+shader_parameter/speed = Vector2(0.08, 0.03)
+shader_parameter/strength = 4.0
 shader_parameter/fast_noise = SubResource("NoiseTexture2D_ba3j5")
 
 [node name="ShaderOverlay" type="Control"]

@@ -5,8 +5,7 @@ extends Control
 @onready var game_running = true
 @onready var spiders_node
 @onready var alive_spiders = []
-@onready var coop : bool = true
-
+@export var coop : bool = true
 
 @export_file("*.tscn") var main_menu_path : String
 
@@ -14,6 +13,9 @@ func _ready():
 	var level = get_parent()
 	spiders_node = level.get_node("spiders")
 	
+	if not coop:
+		game_timer.visible = false
+		
 	game_over_menu.visible = false
 	game_running = true
 	
@@ -42,15 +44,7 @@ func _process(delta):
 						restart_game()
 
 func restart_game():
-	var current_scene_path = get_tree().current_scene.scene_file_path
-	var reloaded_scene = load(current_scene_path).instantiate()
-	
-	# Replace the current scene
-	get_tree().root.add_child(reloaded_scene)
-	get_tree().current_scene.queue_free()
-	get_tree().current_scene = reloaded_scene
-	
-	reloaded_scene.get_node("Game UI").start_game(coop)
+	SceneLoader.reload_current_scene()
 	
 func load_main_menu():
 	SceneLoader.load_scene(main_menu_path)
