@@ -7,6 +7,7 @@ signal ambulance_is_there
 
 @export var start_time_seconds = 15  # 2 minutes in seconds
 
+
 func _ready():
 	timer.wait_time = start_time_seconds 
 	timer.one_shot = true
@@ -18,6 +19,7 @@ func _process(delta):
 		var minutes = time_left / 60
 		var seconds = time_left % 60
 		label.text = "%02d:%02d" % [minutes, seconds]
+		
 
 
 func _on_timer_timeout():
