@@ -24,6 +24,9 @@ func _ready():
 	else:
 		print("Spiders node not found!")
 
+func start_game():
+	print("game ui starts scene now!")
+	
 func _process(delta):
 	if not game_running:
 		if Input.is_action_pressed("1_move_up"):

@@ -2,6 +2,9 @@ extends MainMenu
 
 var animation_state_machine : AnimationNodeStateMachinePlayback
 
+@export_file("*.tscn") var level_1_scene_path : String
+@export_file("*.tscn") var level_2_scene_path : String
+
 func intro_done():
 	animation_state_machine.travel("OpenMainMenu")
 
@@ -39,8 +42,21 @@ func _on_continue_game_button_pressed():
 	load_game_scene()
 	
 func _load_game_with_options(level = 1, coop = true):
+	var path = null
+	if level == 1:
+		path = level_1_scene_path
+	elif level == 2:
+		path = level_2_scene_path
 	print("loading new game with options: level: " + str(level) + " coop: " + str(coop))
-	load_game_scene()
+	var loaded_scene = load(path).instantiate()
+	get_tree().root.add_child(loaded_scene)
+	get_tree().current_scene.queue_free()
+	get_tree().current_scene = loaded_scene
+
+	var game_ui = loaded_scene.find_child("Game UI", false, false)
+	game_ui.start_game()
+	
+	#load_game_scene()
 
 func _on_new_game_button_pressed():
 	pass
