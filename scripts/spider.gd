@@ -19,7 +19,11 @@ extends CharacterBody3D
 @onready var anim_player : AnimationPlayer = breath.get_child(0)
 @onready var anim_player_spider : AnimationPlayer = $AnimationPlayer
 @onready var blend_tree : AnimationTree = $AnimationTree
-
+@onready var audioplayer1 = $AudioStreamPlayer
+@onready var audioplayer2 = $AudioStreamPlayer2
+@onready var audioplayer3 = $AudioStreamPlayer3
+@onready var audioplayer4 = $AudioStreamPlayer4
+var dead = false
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
 
@@ -41,20 +45,29 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	_move(delta)
-	_lose_air(delta)
+	if not dead:
+		_move(delta)
+		_lose_air(delta)
 	
 
 func _move(delta : float):
-	
 	direction = Vector3.ZERO
 	if Input.is_action_pressed(player_num + "_move_right"):
+		if not audioplayer1.playing:
+			audioplayer1.play()
 		direction += Vector3(1,0,0)		
 	if Input.is_action_pressed(player_num + "_move_left"):
+		if not audioplayer1.playing:
+			audioplayer1.play()
 		direction -= Vector3(1,0,0)
 	if Input.is_action_pressed(player_num + "_move_up"):
+		if not audioplayer1.playing:if not audioplayer1.playing:
+			audioplayer1.play()
+			audioplayer1.play()
 		direction -= Vector3(0,0,1)
 	if Input.is_action_pressed(player_num + "_move_down"):
+		if not audioplayer1.playing:
+			audioplayer1.play()
 		direction += Vector3(0,0,1)	
 	
 	direction = direction.normalized()
@@ -69,10 +82,13 @@ func _move(delta : float):
 		velocity = interpolated_velocity
 		#anim_player_spider.play("Idle")
 	#rotate_object_local(Vector3(0,1,0), delta * look_around_speed)
+	if velocity.length() < 0.1:
+		audioplayer1.stop()
 	blend_tree.set("parameters/blend_position", velocity.length())
 	move_and_slide()
 	
 func add_air(value : float):
+	$AudioStreamPlayer2.play()
 	air += value
 	if air > 10:
 		air = 10
@@ -91,8 +107,10 @@ func _lose_air(delta : float):
 		breath.scale = Vector3(1, 1, 1)
 
 func _die():
-	queue_free()
+	dead = true
 	print(spider_name + " di(e)d!")
+	if not $AudioStreamPlayer4.playing:
+		$AudioStreamPlayer4.play()
 	emit_signal("spider_died", spider_name)
 	
 	
@@ -102,3 +120,6 @@ func _on_area_entered(area: Area3D) -> void:
 		var new_air = collided_bubble.absorb_bubble()
 		print(spider_name + " absorbed a bubble.")
 		add_air(new_air)
+	if area.collision_layer & 2:
+		if not $AudioStreamPlayer3.playing:
+			$AudioStreamPlayer3.play()

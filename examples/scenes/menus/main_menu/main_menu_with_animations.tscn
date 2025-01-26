@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d050guftxue6e"]
+[gd_scene load_steps=24 format=3 uid="uid://d050guftxue6e"]
 
 [ext_resource type="Script" path="res://examples/scenes/menus/main_menu/main_menu_with_animations.gd" id="2_wb8xb"]
 [ext_resource type="PackedScene" uid="uid://b10ybn0kr1gcs" path="res://examples/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_h8qup"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/config_version_label.gd" id="7_2lerf"]
 [ext_resource type="Script" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/config_name_label.gd" id="8_ysrvt"]
 [ext_resource type="Script" path="res://addons/maaacks_menus_template/base/scripts/capture_focus.gd" id="9_vvgfu"]
+[ext_resource type="AudioStream" uid="uid://btbrsrgknuwpt" path="res://sounds/sound effects/sitcom_intro_1.mp3" id="10_kdqht"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -362,8 +363,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_wb8xb")
-level_1_scene_path = "res://scenes/level_test.tscn"
-level_2_scene_path = "res://scenes/level_coop.tscn"
 game_scene_path = "res://scenes/level_test.tscn"
 options_packed_scene = ExtResource("3_h8qup")
 credits_packed_scene = ExtResource("4_rrodi")
@@ -646,14 +645,18 @@ offset_right = 62.0
 grow_vertical = 0
 text = "Back"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_kdqht")
+volume_db = 20.0
+
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer/coop1" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer/coop1" to="." method="_on_coop_1_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer/pvp1" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer/pvp1" to="." method="_on_pvp_1_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer2/coop2" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer/pvp1" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer2/coop2" to="." method="_on_coop_2_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer2/pvp2" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer2/coop2" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer2/pvp2" to="." method="_on_pvp_2_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/VBoxContainer/HBoxContainer2/pvp2" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer2/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer2/ExitButton" to="." method="_on_exit_button_pressed"]

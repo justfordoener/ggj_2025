@@ -39,7 +39,7 @@ func _input(event):
 func _ready():
 	super._ready()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
-
+	
 func _on_continue_game_button_pressed():
 	load_game_scene()
 	#load_game_scene()
@@ -61,3 +61,7 @@ func _on_coop_2_pressed():
 
 func _on_pvp_2_pressed():
 	SceneLoader.load_scene(pvp_2_path)
+
+func _process(delta):
+	if not $AudioStreamPlayer.playing:
+		$AudioStreamPlayer.play()

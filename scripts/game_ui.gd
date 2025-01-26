@@ -13,6 +13,7 @@ func _ready():
 	var level = get_parent()
 	spiders_node = level.get_node("spiders")
 	
+	
 	if not coop:
 		game_timer.visible = false
 		
@@ -36,6 +37,8 @@ func start_game(coop_mode : bool):
 		game_timer.visible = false
 	
 func _process(delta):
+	if not $AudioStreamPlayer.playing:
+		$AudioStreamPlayer.play()
 	if not game_running:
 		if Input.is_action_pressed("1_move_up"):
 			if Input.is_action_pressed("2_move_up"):
@@ -76,6 +79,7 @@ func _on_ambulance_is_there():
 		
 
 func _set_game_finished():
+	$AudioStreamPlayer.stop()
 	game_running = false
 	game_over_menu.visible = true
 	for spider in spiders_node.get_children():
