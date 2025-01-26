@@ -2,8 +2,10 @@ extends MainMenu
 
 var animation_state_machine : AnimationNodeStateMachinePlayback
 
-@export_file("*.tscn") var level_1_scene_path : String
-@export_file("*.tscn") var level_2_scene_path : String
+@export_file("*.tscn") var pvp_1_path : String
+@export_file("*.tscn") var coop_1_path : String
+@export_file("*.tscn") var pvp_2_path : String
+@export_file("*.tscn") var coop_2_path : String
 
 func intro_done():
 	animation_state_machine.travel("OpenMainMenu")
@@ -40,38 +42,22 @@ func _ready():
 
 func _on_continue_game_button_pressed():
 	load_game_scene()
-	
-func _load_game_with_options(level = 1, coop = true):
-	var path = null
-	if level == 1:
-		path = level_1_scene_path
-	elif level == 2:
-		path = level_2_scene_path
-	print("loading new game with options: level: " + str(level) + " coop: " + str(coop))
-	var loaded_scene = load(path).instantiate()
-	get_tree().root.add_child(loaded_scene)
-	get_tree().current_scene.queue_free()
-	get_tree().current_scene = loaded_scene
-
-	var game_ui = loaded_scene.find_child("Game UI", false, false)
-	game_ui.start_game(coop)
-	
 	#load_game_scene()
 
 func _on_new_game_button_pressed():
 	pass
 
 func _on_coop_1_pressed():
-	_load_game_with_options(1, true)
+	SceneLoader.load_scene(coop_1_path)
 
 
 func _on_pvp_1_pressed():
-	_load_game_with_options(1, false)
+	SceneLoader.load_scene(pvp_1_path)
 
 
 func _on_coop_2_pressed():
-	_load_game_with_options(2, true)
+	SceneLoader.load_scene(coop_2_path)
 
 
 func _on_pvp_2_pressed():
-	_load_game_with_options(2, false)
+	SceneLoader.load_scene(pvp_2_path)
