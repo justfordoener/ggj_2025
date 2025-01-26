@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cerq8r5eg4atm"
+path="res://.godot/imported/blubbern_short_1.mp3-dff533734380e9353edfa3ba452d268b.mp3str"
+
+[deps]
+
+source_file="res://sounds/sound effects/blubbern_short_1.mp3"
+dest_files=["res://.godot/imported/blubbern_short_1.mp3-dff533734380e9353edfa3ba452d268b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

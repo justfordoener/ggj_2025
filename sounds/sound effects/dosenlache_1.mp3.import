@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb6ctibw7rukq"
+path="res://.godot/imported/dosenlache_1.mp3-50ca74f5c1c1e7b10e390d2e3e15af5a.mp3str"
+
+[deps]
+
+source_file="res://sounds/sound effects/dosenlache_1.mp3"
+dest_files=["res://.godot/imported/dosenlache_1.mp3-50ca74f5c1c1e7b10e390d2e3e15af5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

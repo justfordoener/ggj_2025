@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dorfd4n2o2kgd"
+path="res://.godot/imported/spider_walk_chopsticks_3.mp3-90fe8f62466a9c86f58505dd7572ce23.mp3str"
+
+[deps]
+
+source_file="res://sounds/sound effects/spider_walk_chopsticks_3.mp3"
+dest_files=["res://.godot/imported/spider_walk_chopsticks_3.mp3-90fe8f62466a9c86f58505dd7572ce23.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3u86txclnbv0"
+path="res://.godot/imported/blubb_fast_1.mp3-7467d84d98f96c87ab5432819befc11f.mp3str"
+
+[deps]
+
+source_file="res://sounds/sound effects/blubb_fast_1.mp3"
+dest_files=["res://.godot/imported/blubb_fast_1.mp3-7467d84d98f96c87ab5432819befc11f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buipkmbfamivv"
+path="res://.godot/imported/zisch_slow_1.mp3-8476e1b1703575a6062f65e127f0818e.mp3str"
+
+[deps]
+
+source_file="res://sounds/sound effects/zisch_slow_1.mp3"
+dest_files=["res://.godot/imported/zisch_slow_1.mp3-8476e1b1703575a6062f65e127f0818e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

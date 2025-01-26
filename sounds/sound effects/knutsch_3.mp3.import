@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://phiuyojj8mrn"
+path="res://.godot/imported/knutsch_3.mp3-acdd18a8e57e3e29f475711aefb2cdbf.mp3str"
+
+[deps]
+
+source_file="res://sounds/sound effects/knutsch_3.mp3"
+dest_files=["res://.godot/imported/knutsch_3.mp3-acdd18a8e57e3e29f475711aefb2cdbf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
