@@ -6,7 +6,8 @@ extends Node3D
 @export var growth_rate: float = 0.02
 @export var cooldown : float = 0
 @export var time_to_pop : float = 10
-@export var float_speed : float = 0.6
+@export var float_speed : float = 0
+@export var acceleration : float = 0
 var air_amount: float = 0.0
 var has_spawned : bool = false
 var is_full : bool = false
@@ -43,7 +44,8 @@ func pop_bubble(delta : float):
 	if not is_full:
 		is_full = true
 		timer.start()
-	global_position += Vector3(0,1,0) * delta * float_speed	
+	float_speed += delta * acceleration
+	global_position += Vector3(0,1,0) * delta * float_speed
 func _on_timer_timeout():
 	queue_free()
 	

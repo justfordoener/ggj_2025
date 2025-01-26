@@ -6,6 +6,8 @@ var time_left : float = 0
 @export var max_scale: float = 0.3
 @export var growth_rate: float = 0.02
 @export var cooldown : float = 0
+@export var float_speed : float = 0
+@export var acceleration : float = 0.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +15,8 @@ func _ready() -> void:
 	$bubble.max_scale = max_scale
 	$bubble.growth_rate = growth_rate
 	$bubble.cooldown = cooldown
+	$bubble.float_speed = float_speed
+	$bubble.acceleration = acceleration
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

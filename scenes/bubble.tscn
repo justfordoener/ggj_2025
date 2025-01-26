@@ -14,6 +14,7 @@ albedo_color = Color(0, 0.588235, 0.588235, 0.792157)
 
 [node name="bubble" type="Node3D"]
 script = ExtResource("1_yxin3")
+float_speed = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_840dg")
