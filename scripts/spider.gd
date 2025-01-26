@@ -13,6 +13,7 @@ extends CharacterBody3D
 @export var max_air : float = 10
 @export var inertia : float = 5
 
+@onready var sfx_greet : AudioStreamPlayer = $sfx_greet
 @onready var spider_mesh = $Area3D/CollisionShape3D2/geo_spider_low
 @onready var breath : Node3D = $Ctrl_Global/Skeleton3D/BoneAttachment3D/breath
 @onready var own_area : Area3D = $Area3D
@@ -22,7 +23,7 @@ extends CharacterBody3D
 
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
-
+var walking : bool = false
 signal spider_died(name)
 
 # Called when the node enters the scene tree for the first time.
@@ -37,24 +38,32 @@ func _ready() -> void:
 	material_bubble.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	material_bubble.albedo_color = Color(1, 1, 1, 0.3)
 	#1$breath/bubble.set_surface_override_material(0, material_bubble)
-
+	$sfx_birth.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	_move(delta)
 	_lose_air(delta)
-	
+	if walking:
+		if $sfx_walk.playing == false:
+			$sfx_walk.play()
+		if $sfx_walk2.playing == false:
+			$sfx_walk2.play()
 
 func _move(delta : float):
-	
+	walking = false
 	direction = Vector3.ZERO
 	if Input.is_action_pressed(player_num + "_move_right"):
+		walking = true
 		direction += Vector3(1,0,0)		
 	if Input.is_action_pressed(player_num + "_move_left"):
+		walking = true
 		direction -= Vector3(1,0,0)
 	if Input.is_action_pressed(player_num + "_move_up"):
+		walking = true
 		direction -= Vector3(0,0,1)
 	if Input.is_action_pressed(player_num + "_move_down"):
+		walking = true
 		direction += Vector3(0,0,1)	
 	
 	direction = direction.normalized()
@@ -76,7 +85,7 @@ func add_air(value : float):
 	air += value
 	if air > 10:
 		air = 10
-	
+	$sfx_gulp.play()
 func boost():
 	velocity*=2
 	
@@ -94,7 +103,7 @@ func _die():
 	queue_free()
 	print(spider_name + " di(e)d!")
 	emit_signal("spider_died", spider_name)
-	
+	$sfx_die.play()
 	
 func _on_area_entered(area: Area3D) -> void:
 	if area.collision_layer & 4:
@@ -102,3 +111,9 @@ func _on_area_entered(area: Area3D) -> void:
 		var new_air = collided_bubble.absorb_bubble()
 		print(spider_name + " absorbed a bubble.")
 		add_air(new_air)
+	if area.collision_layer & 2:
+		var player = area.get_parent()
+		print("*" + spider_name + " meets " + player.spider_name + "*")
+		if sfx_greet.playing == false and player.sfx_greet.playing == false:
+			sfx_greet.play()
+		

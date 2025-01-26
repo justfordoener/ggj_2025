@@ -12,7 +12,7 @@ func _ready():
 	timer.wait_time = start_time_seconds 
 	timer.one_shot = true
 	timer.start()
-	
+	$sfx_intro.play()
 func _process(delta):
 	if timer.time_left > 0:
 		var time_left = int(timer.time_left)

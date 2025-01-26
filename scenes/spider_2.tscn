@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://co4s3n8sk0r7a"]
+[gd_scene load_steps=14 format=4 uid="uid://co4s3n8sk0r7a"]
 
 [ext_resource type="PackedScene" uid="uid://fmpob7r38tkr" path="res://scenes/spider.tscn" id="1_e356g"]
 [ext_resource type="Texture2D" uid="uid://b7x6lege1ijlr" path="res://textures/Spider_low_lambert1_BaseColor.png" id="2_18tp4"]
 [ext_resource type="Texture2D" uid="uid://dc6inpexx6cwx" path="res://textures/Yellow.png" id="2_cbisp"]
 [ext_resource type="Texture2D" uid="uid://bsxm3t4mf3i5i" path="res://textures/Spider_low_lambert1_Metallic.png" id="3_u35gx"]
 [ext_resource type="Texture2D" uid="uid://btrqg2tt4cxua" path="res://textures/Spider_low_lambert1_Roughness.png" id="4_oir8b"]
+[ext_resource type="AudioStream" uid="uid://dj2or4wtse7tv" path="res://sounds/voicelines/Pissed_Pete/anal_bang_1.mp3" id="6_cgo41"]
+[ext_resource type="AudioStream" uid="uid://bofyaf6equot1" path="res://sounds/voicelines/Pissed_Pete/menu_add_player_1.mp3" id="6_qttak"]
+[ext_resource type="AudioStream" uid="uid://bf2cuyhlq1spc" path="res://sounds/voicelines/Pissed_Pete/meets_other_spider_1.mp3" id="8_1jkup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2qkc"]
 albedo_texture = ExtResource("2_cbisp")
@@ -57,44 +60,45 @@ roughness_texture = ExtResource("4_oir8b")
 
 [node name="spider" instance=ExtResource("1_e356g")]
 player_num = "2"
-spider_name = "yellow"
-color = Color(0.905882, 0.784314, 0, 1)
+spider_name = "Pissed Pete"
+color = Color(0, 0.273376, 0, 1)
+air = 12.0
 
 [node name="Skeleton3D" parent="Ctrl_Global" index="0"]
-bones/3/position = Vector3(0.0927147, 0.00469414, -4.01289e-10)
-bones/3/rotation = Quaternion(-0.00125512, -0.0132383, -0.094378, 0.995448)
-bones/5/rotation = Quaternion(-0.0118354, 0.999484, -0.000353457, -0.0298489)
-bones/7/rotation = Quaternion(0.846921, 0.418056, 0.0328908, -0.326914)
-bones/8/rotation = Quaternion(0.622105, 0.646843, -0.0410208, 0.439201)
-bones/10/rotation = Quaternion(-0.424278, 0.844902, -0.32401, -0.0338753)
-bones/11/rotation = Quaternion(0.618028, 0.653168, -0.0418639, 0.4355)
-bones/13/rotation = Quaternion(0.829406, 0.528797, 0.0667682, -0.167339)
-bones/14/rotation = Quaternion(0.235878, 0.334663, 0.178958, 0.894615)
-bones/15/rotation = Quaternion(0.399765, 0.465145, -0.0826181, 0.785495)
-bones/17/rotation = Quaternion(0.672672, 0.46872, 0.321558, -0.473724)
-bones/18/rotation = Quaternion(0.110433, 0.333671, -0.00104187, 0.936198)
-bones/20/rotation = Quaternion(0.58172, 0.585029, 0.406875, -0.392168)
-bones/21/rotation = Quaternion(0.00330005, 0.334413, -0.00784136, 0.942388)
-bones/23/rotation = Quaternion(0.396604, 0.792264, 0.419302, -0.198013)
-bones/24/rotation = Quaternion(-0.311146, 0.386099, -0.0299851, 0.867881)
-bones/26/rotation = Quaternion(-0.555798, 0.817601, -0.100752, -0.111655)
-bones/27/rotation = Quaternion(0.234932, 0.344524, 0.184799, 0.889921)
-bones/28/rotation = Quaternion(0.395321, 0.479831, -0.0866646, 0.778443)
-bones/30/rotation = Quaternion(-0.530381, 0.668835, -0.399634, -0.334139)
-bones/31/rotation = Quaternion(0.10704, 0.397062, -0.00240735, 0.911525)
-bones/33/rotation = Quaternion(-0.585974, 0.60984, -0.391882, -0.362157)
-bones/34/rotation = Quaternion(0.00319688, 0.384742, -0.0091681, 0.922973)
-bones/36/rotation = Quaternion(0.786588, -0.429318, 0.208064, 0.392015)
-bones/37/rotation = Quaternion(-0.30574, 0.420682, -0.0317196, 0.853548)
+bones/3/position = Vector3(0.0949537, 0.0163956, -1.39976e-09)
+bones/3/rotation = Quaternion(-0.0044471, -0.0469056, -0.0942816, 0.99443)
+bones/5/rotation = Quaternion(-0.0118191, 0.998105, -0.000715098, -0.060389)
+bones/7/rotation = Quaternion(0.803501, 0.528163, 0.0201588, -0.273903)
+bones/8/rotation = Quaternion(0.464041, 0.842183, -0.0975501, 0.256667)
+bones/10/rotation = Quaternion(-0.503064, 0.807615, -0.306504, 0.0272052)
+bones/11/rotation = Quaternion(0.494511, 0.812401, -0.0827898, 0.297674)
+bones/13/rotation = Quaternion(0.83474, 0.510816, 0.0450943, -0.200604)
+bones/14/rotation = Quaternion(0.236223, 0.327977, 0.174985, 0.89778)
+bones/15/rotation = Quaternion(0.402933, 0.455837, -0.0795317, 0.789641)
+bones/17/rotation = Quaternion(0.671336, 0.429346, 0.320785, -0.511924)
+bones/18/rotation = Quaternion(0.113483, 0.288232, 0.000186857, 0.950812)
+bones/20/rotation = Quaternion(0.549193, 0.59017, 0.451188, -0.382774)
+bones/21/rotation = Quaternion(0.00382313, 0.261689, -0.00579725, 0.965127)
+bones/23/rotation = Quaternion(0.373542, 0.798914, 0.439201, -0.171185)
+bones/24/rotation = Quaternion(-0.318432, 0.345991, -0.0294192, 0.882058)
+bones/26/rotation = Quaternion(-0.565462, 0.810766, -0.0664253, -0.13601)
+bones/27/rotation = Quaternion(0.234416, 0.348001, 0.186846, 0.888276)
+bones/28/rotation = Quaternion(0.393861, 0.485425, -0.0878338, 0.775578)
+bones/30/rotation = Quaternion(-0.556039, 0.664103, -0.361933, -0.344662)
+bones/31/rotation = Quaternion(0.106074, 0.420361, -0.00264, 0.901131)
+bones/33/rotation = Quaternion(-0.594757, 0.647271, -0.379601, -0.288457)
+bones/34/rotation = Quaternion(0.003318, 0.443425, -0.0106376, 0.896242)
+bones/36/rotation = Quaternion(0.77856, -0.486433, 0.20535, 0.339202)
+bones/37/rotation = Quaternion(-0.299137, 0.467045, -0.0347097, 0.831373)
 
 [node name="geo_spider_low" parent="Ctrl_Global/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_v2qkc")
 
 [node name="BoneAttachment3D" parent="Ctrl_Global/Skeleton3D" index="1"]
-transform = Transform3D(-0.999646, -1.49012e-08, 0.026593, -1.49012e-08, 1, -1.2024e-16, -0.026593, -1.20283e-16, -0.999646, -0.0901806, 0.083991, 4.01289e-10)
+transform = Transform3D(-0.99556, -8.9407e-08, 0.0941273, -7.45058e-08, 1, 5.58794e-09, -0.0941273, -3.72529e-09, -0.99556, -0.0901806, 0.0959047, 1.39976e-09)
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Ctrl_Global/Skeleton3D" index="2"]
-transform = Transform3D(0.975715, 0.211135, 0.0583302, -0.210759, 0.977457, -0.0125996, -0.0596755, -1.23259e-16, 0.998218, 0.134582, 0.0503216, -0.0032944)
+transform = Transform3D(0.970327, 0.211135, 0.117848, -0.209595, 0.977457, -0.0254557, -0.120566, -8.14907e-10, 0.992705, 0.134285, 0.0503859, -0.00665588)
 bone_name = "head_end"
 bone_idx = 6
 
@@ -103,3 +107,12 @@ transform = Transform3D(0.919129, -0.392995, -0.0275258, 0.393604, 0.919021, 0.0
 mesh = SubResource("ArrayMesh_fm1bq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4jenb")
+
+[node name="sfx_birth" parent="." index="6"]
+stream = ExtResource("6_qttak")
+
+[node name="sfx_die" parent="." index="9"]
+stream = ExtResource("6_cgo41")
+
+[node name="sfx_greet" parent="." index="10"]
+stream = ExtResource("8_1jkup")
