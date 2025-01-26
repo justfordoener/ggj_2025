@@ -54,7 +54,7 @@ func _load_game_with_options(level = 1, coop = true):
 	get_tree().current_scene = loaded_scene
 
 	var game_ui = loaded_scene.find_child("Game UI", false, false)
-	game_ui.start_game()
+	game_ui.start_game(coop)
 	
 	#load_game_scene()
 

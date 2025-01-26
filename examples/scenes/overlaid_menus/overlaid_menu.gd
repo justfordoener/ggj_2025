@@ -14,9 +14,6 @@ func _on_restart_button_pressed():
 	
 func _on_main_menu_button_pressed():
 	game_ui.load_main_menu()
-
-func set_text_loss(dead_spider):
-	displayText.text = "Game Over.. Your friend " + dead_spider + " suffocated.."
-
-func set_text_win():
-	displayText.text = "Game Won!! The Air-ambulance saved everyone!!"
+	
+func set_text(text):
+	displayText.text = text

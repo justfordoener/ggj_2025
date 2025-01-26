@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3hxp1")
-main_menu_path = "res://examples/scenes/menus/main_menu/main_menu_with_animations.tscn"
+main_menu_path = "res://scenes/menu_scene.tscn"
 
 [node name="game timer" parent="." instance=ExtResource("1_2a8fm")]
 layout_mode = 1
