@@ -37,3 +37,25 @@ func _ready():
 
 func _on_continue_game_button_pressed():
 	load_game_scene()
+	
+func _load_game_with_options(level = 1, coop = true):
+	print("loading new game with options: level: " + str(level) + " coop: " + str(coop))
+	load_game_scene()
+
+func _on_new_game_button_pressed():
+	pass
+
+func _on_coop_1_pressed():
+	_load_game_with_options(1, true)
+
+
+func _on_pvp_1_pressed():
+	_load_game_with_options(1, false)
+
+
+func _on_coop_2_pressed():
+	_load_game_with_options(2, true)
+
+
+func _on_pvp_2_pressed():
+	_load_game_with_options(2, false)
