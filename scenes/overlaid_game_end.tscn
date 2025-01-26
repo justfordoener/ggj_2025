@@ -63,14 +63,24 @@ theme_override_font_sizes/font_size = 24
 text = "Game Finished!!"
 horizontal_alignment = 1
 
+[node name="Description" type="MarginContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/Description"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "(Press up with all players to restart)"
+horizontal_alignment = 1
+
 [node name="DescriptionMargin" type="MarginContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin"]
 layout_mode = 2
 bbcode_enabled = true
+text = "efefe
+fefe"
 
 [node name="MenuButtonsMargin" type="MarginContainer" parent="MenuPanelContainer/MarginContainer/BoxContainer"]
 layout_mode = 2
@@ -96,7 +106,7 @@ layout_mode = 2
 text = "Main Menu
 "
 
-[connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/RestartButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/MainMenuButton" to="." method="_on_close_button_pressed"]
