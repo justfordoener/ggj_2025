@@ -1,16 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://di84clpo2d0hf"]
+[gd_scene load_steps=23 format=3 uid="uid://di84clpo2d0hf"]
 
-[ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://scenes/game_ui.tscn" id="1_gln4i"]
-[ext_resource type="PackedScene" uid="uid://bt1b8o28tedqq" path="res://scenes/shader_overlay.tscn" id="2_c4s3v"]
+[ext_resource type="PackedScene" path="res://scenes/game_ui.tscn" id="1_gln4i"]
+[ext_resource type="PackedScene" path="res://scenes/shader_overlay.tscn" id="2_c4s3v"]
 [ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="2_cnn5f"]
-[ext_resource type="PackedScene" uid="uid://co4s3n8sk0r7a" path="res://scenes/spider_2.tscn" id="3_0s65w"]
+[ext_resource type="PackedScene" path="res://scenes/spider_2.tscn" id="3_0s65w"]
+[ext_resource type="Material" uid="uid://cqs8ujhjur2oe" path="res://textures/sand_soft.tres" id="3_e24qs"]
 [ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="4_m6k3c"]
 [ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="5_aehma"]
 [ext_resource type="PackedScene" uid="uid://iw5qqw6a0y7v" path="res://scenes/obstacles/obstacle_stone1.tscn" id="6_g6ow1"]
-[ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="6_o1v6f"]
+[ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="6_o1v6f"]
 [ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacles/obstacle.tscn" id="7_d4kxs"]
 [ext_resource type="PackedScene" uid="uid://ot2g83xcslup" path="res://scenes/obstacles/obstacle_shoe.tscn" id="7_n5dtx"]
 [ext_resource type="PackedScene" uid="uid://ceipxs5377pau" path="res://scenes/spawner.tscn" id="8_aprab"]
+[ext_resource type="PackedScene" uid="uid://ii414tguxm80" path="res://scenes/obstacles/obstacle_wall2.tscn" id="8_bbwmi"]
 [ext_resource type="PackedScene" uid="uid://dgweq45mcf7xq" path="res://scenes/obstacles/obstacle_stone2.tscn" id="8_oc5rh"]
 [ext_resource type="PackedScene" uid="uid://rg36k8bjoory" path="res://scenes/obstacles/obstacle_stone4.tscn" id="9_o5ivp"]
 [ext_resource type="PackedScene" uid="uid://nn6kq63s4w8e" path="res://scenes/bubble_spawn_point.tscn" id="9_xtpyf"]
@@ -31,6 +33,7 @@
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
 mesh = SubResource("PlaneMesh_b2i4f")
+surface_material_override/0 = ExtResource("3_e24qs")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984807, 0.173648, 0, 3.4, 1.5)
@@ -152,19 +155,16 @@ transform = Transform3D(0.0479275, 0, -0.104047, 0, 0.20795, 0, 0.0925722, 0, 0.
 transform = Transform3D(0.599918, 0, -0.800061, 0, 1, 0, 0.800061, 0, 0.599918, -1.71128, 0.36959, 0.187299)
 
 [node name="seahorse" parent="obstacles" instance=ExtResource("13_ixkka")]
-transform = Transform3D(1.82288, 0, 0, 0, 1.76464, 0, 0, 0, 2.10459, 3.04573, 0.197193, 1.94977)
+transform = Transform3D(-7.96806e-08, 1.76464, 0, -1.82288, -7.71349e-08, 0, 0, 0, 2.10459, 3.10912, 0.197193, 1.94977)
 
 [node name="arch" parent="obstacles" instance=ExtResource("14_o2ktx")]
 transform = Transform3D(0.282913, 0, -0.141313, 0, 0.390858, 0, 0.0749707, 0, 0.533267, 3.91064, 0, 1.08775)
 
-[node name="wall2" parent="obstacles" instance=ExtResource("11_460lq")]
-transform = Transform3D(-0.00338893, -3.23103e-10, -0.117102, 0.00910778, -0.207154, -0.000332968, -0.103789, -0.0181783, 0.00379439, -6.53367, 0.372091, -2.42032)
+[node name="wall2" parent="obstacles" instance=ExtResource("8_bbwmi")]
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0.0119548, 0.0992828, 5.2256e-10, -0.0992828, 0.0119548, -4.33979e-09, -6.61731, -0.985198, -2.55966)
 
 [node name="wall3" parent="obstacles" instance=ExtResource("11_460lq")]
 transform = Transform3D(0.146805, 0, -0.00536344, 0, 0.0767598, 0, 0.00630439, 0, 0.124894, 6.26836, 0.0694901, 1.43958)
-
-[node name="wall4" parent="obstacles" instance=ExtResource("11_460lq")]
-transform = Transform3D(-0.217573, -0.00038488, -0.00699436, -0.00111674, -0.0756909, 0.0225288, -0.0121621, 0.0138354, 0.123057, 3.47713, 0.34879, 3.20793)
 
 [node name="longstone 2" parent="obstacles" instance=ExtResource("6_g6ow1")]
 transform = Transform3D(2.01834, 0, 0, 0, 1, 0, 0, 0, 1, 3.05998, 0.216251, -0.241495)
@@ -181,14 +181,17 @@ transform = Transform3D(-0.652341, 0, -0.816225, 0, 3.04448, 0, 0.622237, 0, -0.
 [node name="stone 5" parent="obstacles" instance=ExtResource("9_o5ivp")]
 transform = Transform3D(0.901514, 0, 0, 0, 3.04448, 0, 0, 0, 1.18257, -2.17178, 0.20605, -3.49725)
 
-[node name="wall5" parent="obstacles" instance=ExtResource("11_460lq")]
-transform = Transform3D(0.09369, -0.0396407, -0.0462591, -0.0213363, -0.203543, 0.000780026, -0.0404177, 0.0155606, -0.107642, -0.926043, 0.372091, -2.81386)
-
 [node name="wall6" parent="obstacles" instance=ExtResource("11_460lq")]
 transform = Transform3D(-0.00449299, 0, -0.11329, 0, 0.0767598, 0, 0.193959, 0, -0.00262433, 5.49931, 0.069491, -0.698768)
 
 [node name="arch2" parent="obstacles" instance=ExtResource("14_o2ktx")]
 transform = Transform3D(0.388123, 0, 0.109353, 0, 0.212674, 0, -0.0784917, 0, 0.540727, -3.02976, 0, -2.35548)
+
+[node name="wall7" parent="obstacles" instance=ExtResource("8_bbwmi")]
+transform = Transform3D(0.0901129, 0.0207437, 0.0380705, -0.0171786, 0.0977073, -0.0125766, -0.0398065, 0.00479315, 0.0916104, -1.20206, -0.903464, -2.85958)
+
+[node name="wall8" parent="obstacles" instance=ExtResource("8_bbwmi")]
+transform = Transform3D(0.215632, -0.00164471, -0.00436707, 0.00385216, 0.0980125, 0.00216399, 0.00987453, -0.00231993, 0.0945206, 3.24878, -1.04086, 3.20358)
 
 [node name="spawner" parent="." instance=ExtResource("8_aprab")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21712, 0, 0)
