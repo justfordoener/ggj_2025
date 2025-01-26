@@ -2,7 +2,7 @@
 
 extends CharacterBody3D
 
-@export var speed = 2
+@export var speed = 1
 @export var rotation_speed = 1
 @export var look_around_speed = 0.5
 @export var lose_air_rate = 0.7
@@ -20,8 +20,6 @@ var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
 var air : float = 10
 var max_air : float = 10
-var inertia : float = 4
-var current_direction : Vector3 = Vector3.ZERO
 
 signal spider_died(name)
 
@@ -58,20 +56,16 @@ func _move(delta : float):
 		direction += Vector3(0,0,1)	
 	
 	direction = direction.normalized()
-	current_direction = -transform.basis.z.normalized()
-	var interpolated_direction = lerp(current_direction, direction, inertia * delta)
+	var current_direction = -transform.basis.z.normalized()
+	var interpolated_direction = lerp(current_direction, direction, 5 * delta)
 	if direction != Vector3.ZERO:
 		look_at(global_position + interpolated_direction, Vector3.UP)
-		velocity = lerp(velocity, interpolated_direction * speed, inertia * delta)
+		velocity = direction * speed
 		anim_player_spider.play("SwimCycle_Forward")
-	else:
-		var interpolated_velocity = lerp(velocity, Vector3.ZERO, inertia * delta)
-		velocity = interpolated_velocity
+	else: 
+		velocity = Vector3.ZERO
 	#rotate_object_local(Vector3(0,1,0), delta * look_around_speed)
 	move_and_slide()
-
-func boost():
-	velocity *= 2
 	
 func add_air(value : float):
 	air += value
