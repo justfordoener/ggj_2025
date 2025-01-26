@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=21 format=3 uid="uid://di84clpo2d0hf"]
+=======
+[gd_scene load_steps=23 format=3 uid="uid://di84clpo2d0hf"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://scenes/game_ui.tscn" id="1_gln4i"]
 [ext_resource type="PackedScene" uid="uid://bt1b8o28tedqq" path="res://scenes/shader_overlay.tscn" id="2_c4s3v"]
@@ -18,9 +22,19 @@
 [ext_resource type="PackedScene" uid="uid://cednvb5q0aw6y" path="res://scenes/obstacles/obstacle_shark.tscn" id="12_3kosd"]
 [ext_resource type="PackedScene" uid="uid://sx6v0cpgawxg" path="res://scenes/obstacles/obstacle_seahorse.tscn" id="13_ixkka"]
 [ext_resource type="PackedScene" uid="uid://cvpbllrv5xokh" path="res://scenes/obstacles/obstacle_arch.tscn" id="14_o2ktx"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://scenes/wobbler.gd" id="19_mphuj"]
+=======
+[ext_resource type="ArrayMesh" uid="uid://jgldrwsg5foq" path="res://textures/archway_3.obj" id="17_0fmfa"]
+>>>>>>> Stashed changes
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viefj"]
+albedo_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_el1qd"]
+size = Vector3(0.79834, 1.85754, 0.808594)
 
 [node name="level_test" type="Node3D"]
 
@@ -83,24 +97,20 @@ wobble_intensity = 0.4
 [node name="spider1" parent="spiders" instance=ExtResource("2_cnn5f")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, -0.4)
 collision_layer = 1
-speed = 2
 
 [node name="spider2" parent="spiders" instance=ExtResource("4_m6k3c")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, 0.4)
 collision_layer = 1
-speed = 2
 player_num = "2"
 
 [node name="spider3" parent="spiders" instance=ExtResource("5_aehma")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, 0.4)
 collision_layer = 1
-speed = 2
 player_num = "3"
 
 [node name="spider4" parent="spiders" instance=ExtResource("3_0s65w")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, -0.4)
 collision_layer = 1
-speed = 2
 player_num = "4"
 
 [node name="game timer" parent="." instance=ExtResource("6_o1v6f")]
@@ -113,10 +123,10 @@ start_time_seconds = 30
 transform = Transform3D(2.54915, 0, 0, 0, 1, 0, 0, 0, 1, -1.28233, 0.216251, 3.00323)
 
 [node name="shoe2" parent="obstacles" instance=ExtResource("7_n5dtx")]
-transform = Transform3D(-0.0230538, 0.116293, 0.992947, 0, -0.993211, 0.116324, 0.999734, 0.00268171, 0.0228973, 3.20037, 1.04514, -2.35232)
+transform = Transform3D(-0.0205947, -0.342458, 0.939307, 0.199013, -0.922109, -0.331824, 0.97978, 0.180101, 0.0871442, 4.14788, 1.12462, -2.39914)
 
 [node name="shoe1" parent="obstacles" instance=ExtResource("7_n5dtx")]
-transform = Transform3D(-0.0169987, 0, 0.999856, 0, 1, 0, -0.999856, 0, -0.0169987, -4.80717, 0.216251, 1.38516)
+transform = Transform3D(-0.428655, -0.27448, 0.860765, -0.122356, 0.961593, 0.245699, -0.895145, 0, -0.445776, -4.80717, 0.0194228, 1.38516)
 
 [node name="stone" parent="obstacles" instance=ExtResource("8_oc5rh")]
 transform = Transform3D(-0.169005, 0, -0.462928, 0, 1, 0, 0.558997, 0, -0.13996, -2.72877, 0.216251, 3.10331)
@@ -149,13 +159,13 @@ transform = Transform3D(0.247299, 0, -0.934775, 0, 1, 0, 0.819766, 0, 0.281994, 
 transform = Transform3D(0.0479275, 0, -0.104047, 0, 0.20795, 0, 0.0925722, 0, 0.0538682, -1.93149, -1.07757, 1.67748)
 
 [node name="shark" parent="obstacles" instance=ExtResource("12_3kosd")]
-transform = Transform3D(0.904552, 0, -0.426363, 0, 1, 0, 0.426363, 0, 0.904552, -2.40599, 0.36959, 0.164)
+transform = Transform3D(0.621722, 0, -0.783237, 0, 1, 0, 0.783237, 0, 0.621722, -1.6912, 0.36959, -0.100101)
 
 [node name="seahorse" parent="obstacles" instance=ExtResource("13_ixkka")]
 transform = Transform3D(1.28586, 0, 0, 0, 1.24478, 0, 0, 0, 1.48458, 3.02123, 0.168359, 2.06662)
 
 [node name="arch" parent="obstacles" instance=ExtResource("14_o2ktx")]
-transform = Transform3D(0.292678, 0, 0, 0, 0.390858, 0, 0, 0, 0.551673, 3.91064, 0, 1.08775)
+transform = Transform3D(0.196082, 0, -0.4547, 0, 0.390858, 0, 0.283537, 0, 0.31445, 4.45064, 0, 0.402813)
 
 [node name="wall2" parent="obstacles" instance=ExtResource("11_460lq")]
 transform = Transform3D(-0.00338893, -3.23103e-10, -0.117102, 0.00910778, -0.207154, -0.000332968, -0.103789, -0.0181783, 0.00379439, -6.53367, 0.372091, -2.42032)
@@ -164,25 +174,47 @@ transform = Transform3D(-0.00338893, -3.23103e-10, -0.117102, 0.00910778, -0.207
 transform = Transform3D(0.146805, 0, -0.00536344, 0, 0.0767598, 0, 0.00630439, 0, 0.124894, 6.26836, 0.0694901, 1.43958)
 
 [node name="wall4" parent="obstacles" instance=ExtResource("11_460lq")]
-transform = Transform3D(-0.21791, -0.000386325, -0.000599263, 0.00109433, -0.076945, -2.70214e-05, -0.00104198, -1.84416e-05, 0.125296, 3.47713, 0.34879, 3.20793)
+transform = Transform3D(-0.217796, -0.00192614, -0.00270062, 0.00476665, -0.0762123, 0.0170428, -0.00539406, 0.0104241, 0.124104, 3.47713, 0.458605, 3.20793)
 
 [node name="longstone 2" parent="obstacles" instance=ExtResource("6_g6ow1")]
-transform = Transform3D(2.01834, 0, 0, 0, 1, 0, 0, 0, 1, 3.05998, 0.216251, -0.241495)
+transform = Transform3D(1.98925, 0, 0.16916, 0, 1, 0, -0.341423, 0, 0.985589, 2.92102, 0.216251, -0.160547)
 
 [node name="stone 1" parent="obstacles" instance=ExtResource("6_g6ow1")]
 transform = Transform3D(0.626054, 0, 0, 0, 1, 0, 0, 0, 1, 1.7928, 0.216251, -0.0760136)
 
+[node name="stone 4" parent="obstacles" instance=ExtResource("6_g6ow1")]
+transform = Transform3D(0.941244, 0, 0, 0, 1.5623, 0, 0, 0, 1.47189, 3.35853, 0.316073, -1.99008)
+
 [node name="stone 3" parent="obstacles" instance=ExtResource("9_o5ivp")]
 transform = Transform3D(0.901514, 0, 0, 0, 3.04448, 0, 0, 0, 1.18257, 0.970268, 0.216251, -0.32673)
 
+[node name="stone 5" parent="obstacles" instance=ExtResource("9_o5ivp")]
+transform = Transform3D(0.283293, 0, -1.12266, 0, 3.04448, 0, 0.855846, 0, 0.371612, -1.73747, 0.0483618, -3.93794)
+
 [node name="wall5" parent="obstacles" instance=ExtResource("11_460lq")]
-transform = Transform3D(-0.00338893, -3.71335e-10, -0.117102, -0.0213363, -0.203543, 0.000780026, -0.10198, 0.0425854, 0.00372825, -0.254509, 0.372091, -3.20697)
+transform = Transform3D(0.0997579, 0.0518835, -0.0173598, 0.0247303, -0.201032, -0.0112059, -0.0174191, 0.0117236, -0.115328, -1.01101, 0.372091, -2.76255)
 
 [node name="wall6" parent="obstacles" instance=ExtResource("11_460lq")]
 transform = Transform3D(-0.00449299, 0, -0.11329, 0, 0.0767598, 0, 0.193959, 0, -0.00262433, 5.49931, 0.069491, -0.698768)
 
-[node name="arch2" parent="obstacles" instance=ExtResource("14_o2ktx")]
+[node name="arch2" type="Node3D" parent="obstacles"]
 transform = Transform3D(0.37491, 0, 0.177557, 0, 0.212674, 0, -0.127447, 0, 0.522319, -3.02976, 0, -2.35548)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="obstacles/arch2"]
+
+[node name="Archway3" type="MeshInstance3D" parent="obstacles/arch2/StaticBody3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.0431261, -2.38419e-07, 0.338199)
+mesh = ExtResource("17_0fmfa")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_viefj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstacles/arch2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87557, 0.666323, 0.380251)
+shape = SubResource("BoxShape3D_el1qd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="obstacles/arch2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83447, 0.745708, 0.380251)
+shape = SubResource("BoxShape3D_el1qd")
 
 [node name="spawner" parent="." instance=ExtResource("8_aprab")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21712, 0, 0)
@@ -197,8 +229,13 @@ cooldown = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9697, -4.76837e-07, 1.9454)
 cooldown = 20.0
 
-[node name="bubble_spawn_point3" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.610559, -4.76837e-07, -1.12752)
+[node name="bubble_spawn_point10" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12756, 1.7053e-13, 2.1765)
+growth_rate = 0.05
+cooldown = 10.0
+
+[node name="bubble_spawn_point11" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136422, 1.7053e-13, -3.00793)
 growth_rate = 0.05
 cooldown = 10.0
 
@@ -221,6 +258,6 @@ growth_rate = 0.03
 cooldown = 25.0
 
 [node name="bubble_spawn_point8" parent="spawner/spawn_points" instance=ExtResource("9_xtpyf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57506, 0, -2.6214)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99916, 0, -2.88556)
 growth_rate = 0.05
 cooldown = 15.0
