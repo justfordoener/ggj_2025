@@ -3,12 +3,14 @@ extends Control
 @onready var game_over_menu = $"game over menu"
 @onready var game_timer = $"game timer"
 @onready var game_running = true
+@onready var spiders_node
+
 
 @export_file("*.tscn") var main_menu_path : String
 
 func _ready():
 	var level = get_parent()
-	var spiders_node = level.get_node("spiders")
+	spiders_node = level.get_node("spiders")
 	
 	game_over_menu.visible = false
 	game_running = true
@@ -37,13 +39,20 @@ func load_main_menu():
 	SceneLoader.load_scene(main_menu_path)
 
 func _on_spider_died(name):
-	print("UI received signal: Spider " + name + " died!")
-	game_over_menu.visible = true
-	game_over_menu.set_text_loss(name)
-	game_running = false
+	if game_running:
+		print("UI received signal: Spider " + name + " died!")
+		_set_game_finished()
+		game_over_menu.set_text_loss(name)
 
 func _on_ambulance_is_there():
-	print("UI received signal: Timer is finished!")
-	game_over_menu.visible = true
-	game_over_menu.set_text_win()
+	if game_running:
+		print("UI received signal: Timer is finished!")
+		_set_game_finished()
+		game_over_menu.set_text_win()
+		
+
+func _set_game_finished():
 	game_running = false
+	game_over_menu.visible = true
+	for spider in spiders_node.get_children():
+		spider.set_game_running(game_running)
