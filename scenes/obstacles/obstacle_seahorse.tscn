@@ -1,4 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://sx6v0cpgawxg"]
+[gd_scene load_steps=8 format=4 uid="uid://sx6v0cpgawxg"]
+
+[ext_resource type="Texture2D" uid="uid://dim8d7w26hs0k" path="res://textures/leather/Leather_oiztx2p0_1K_BaseColor.jpg" id="1_vi7gm"]
+[ext_resource type="Texture2D" uid="uid://cdpmqqfagp0is" path="res://textures/leather/Leather_oiztx2p0_1K_Normal.jpg" id="2_eju0j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_270m7"]
 size = Vector3(0.194458, 0.42334, 0.816528)
@@ -43,7 +46,12 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qk3tc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgrnq"]
-albedo_color = Color(0.43, 0.424482, 0.3827, 1)
+specular_mode = 2
+albedo_color = Color(0.94, 0.939373, 0.9212, 1)
+albedo_texture = ExtResource("1_vi7gm")
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("2_eju0j")
 anisotropy = 0.83
 
 [node name="Node3D" type="Node3D"]
