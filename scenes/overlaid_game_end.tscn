@@ -11,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2paa8")
-main_menu_path = "res://examples/scenes/menus/main_menu/main_menu_with_animations.tscn"
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 layout_mode = 1

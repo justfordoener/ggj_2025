@@ -16,5 +16,5 @@ void fragment() {
 	vec2 noise = texture(fast_noise, uv).rg;
 	COLOR = vec4(color.r, color.g, color.b, 0.1) + vec4(noise.x / 2.0, noise.y / 2.0, 0.8, 1);
 	COLOR *= texture(screen_content, SCREEN_UV + noise * (strength/100.0));
-	
+
 }
