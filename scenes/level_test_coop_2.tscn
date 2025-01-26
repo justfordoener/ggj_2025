@@ -1,0 +1,223 @@
+[gd_scene load_steps=21 format=3 uid="uid://dbi5r5t5hi4og"]
+
+[ext_resource type="PackedScene" uid="uid://bt1b8o28tedqq" path="res://scenes/shader_overlay.tscn" id="1_mbgix"]
+[ext_resource type="PackedScene" uid="uid://e8wwnl7cydq2" path="res://scenes/game_ui.tscn" id="2_ih6ag"]
+[ext_resource type="Script" path="res://scenes/wobbler.gd" id="3_yxjgs"]
+[ext_resource type="PackedScene" uid="uid://yxkck8m3usps" path="res://scenes/spider_1.tscn" id="4_8jxq3"]
+[ext_resource type="PackedScene" uid="uid://iey3ayvuv7r" path="res://scenes/spider_3.tscn" id="5_r3ggk"]
+[ext_resource type="PackedScene" uid="uid://csrdby87501h7" path="res://scenes/spider_4.tscn" id="6_tq0su"]
+[ext_resource type="PackedScene" uid="uid://co4s3n8sk0r7a" path="res://scenes/spider_2.tscn" id="7_ltayc"]
+[ext_resource type="PackedScene" uid="uid://oge4drkjke1h" path="res://scenes/timer.tscn" id="8_qo4nu"]
+[ext_resource type="PackedScene" uid="uid://vhnievwhf8n" path="res://scenes/deadfish.tscn" id="9_r7ctx"]
+[ext_resource type="PackedScene" uid="uid://iw5qqw6a0y7v" path="res://scenes/obstacles/obstacle_stone1.tscn" id="10_1l2sy"]
+[ext_resource type="PackedScene" uid="uid://ot2g83xcslup" path="res://scenes/obstacles/obstacle_shoe.tscn" id="11_40myh"]
+[ext_resource type="PackedScene" uid="uid://dgweq45mcf7xq" path="res://scenes/obstacles/obstacle_stone2.tscn" id="12_weo7x"]
+[ext_resource type="PackedScene" uid="uid://rg36k8bjoory" path="res://scenes/obstacles/obstacle_stone4.tscn" id="13_yjgkh"]
+[ext_resource type="PackedScene" uid="uid://sdmlr3kuybxu" path="res://scenes/obstacles/obstacle.tscn" id="14_he0io"]
+[ext_resource type="PackedScene" uid="uid://chcdcapoxuc3y" path="res://scenes/obstacles/obstacle_wall.tscn" id="15_vjmgy"]
+[ext_resource type="PackedScene" uid="uid://sx6v0cpgawxg" path="res://scenes/obstacles/obstacle_seahorse.tscn" id="16_jjflg"]
+[ext_resource type="PackedScene" uid="uid://cvpbllrv5xokh" path="res://scenes/obstacles/obstacle_arch.tscn" id="17_iynlr"]
+[ext_resource type="PackedScene" uid="uid://ceipxs5377pau" path="res://scenes/spawner.tscn" id="18_vrcnd"]
+[ext_resource type="PackedScene" uid="uid://nn6kq63s4w8e" path="res://scenes/bubble_spawn_point.tscn" id="19_6cdfu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b2i4f"]
+
+[node name="level_test2" type="Node3D"]
+
+[node name="ShaderOverlay" parent="." instance=ExtResource("1_mbgix")]
+
+[node name="Game UI" parent="." instance=ExtResource("2_ih6ag")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
+mesh = SubResource("PlaneMesh_b2i4f")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984807, 0.173648, 0, 3.4, 1.5)
+visible = false
+fov = 112.5
+
+[node name="Wobbler" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0.886808, -3.60882)
+script = ExtResource("3_yxjgs")
+wobble_speed = 0.16
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.877004, 0.480484, 0, -0.480484, 0.877004, 0.618181, 1.19974, 1.39068)
+
+[node name="Wobbler2" type="Node3D" parent="DirectionalLight3D"]
+transform = Transform3D(1, 0, 0, 0, 0.877004, -0.480484, 0, 0.480484, 0.877004, -0.618181, -0.383977, -1.79609)
+script = ExtResource("3_yxjgs")
+wobble_speed = 0.16
+wobble_intensity = 0.4
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.826216, 0.270682, -0.494063, 0, 0.877004, 0.480484, 0.563353, -0.396984, 0.724595, -5.03799, 2.64538, 1.39068)
+
+[node name="Wobbler3" type="Node3D" parent="DirectionalLight3D2"]
+transform = Transform3D(0.826216, 0, 0.563353, 0.270682, 0.877003, -0.396984, -0.494063, 0.480484, 0.724595, 3.37902, -0.404236, -4.76782)
+script = ExtResource("3_yxjgs")
+wobble_speed = 0.16
+wobble_intensity = 0.4
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.724015, -0.33143, 0.604943, 2.91008e-08, 0.877004, 0.480484, -0.689784, -0.347878, 0.634964, 4.18417, 2.64538, 1.39068)
+
+[node name="Wobbler4" type="Node3D" parent="DirectionalLight3D3"]
+transform = Transform3D(0.724015, 2.98023e-08, -0.689784, -0.33143, 0.877004, -0.347878, 0.604943, 0.480484, 0.634964, -2.07013, -0.449462, -4.68528)
+script = ExtResource("3_yxjgs")
+wobble_speed = 0.16
+wobble_intensity = 0.4
+
+[node name="DirectionalLight3D4" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.859478, -0.24561, 0.448301, -1.30337e-08, 0.877004, 0.480484, -0.511173, 0.412965, -0.753765, 0.406433, 2.64538, -2.62446)
+
+[node name="Wobbler5" type="Node3D" parent="DirectionalLight3D4"]
+transform = Transform3D(-0.859478, 0, -0.511173, -0.24561, 0.877004, 0.412965, 0.448301, 0.480483, -0.753765, -0.992233, -1.13637, -3.43149)
+script = ExtResource("3_yxjgs")
+wobble_speed = 0.16
+wobble_intensity = 0.4
+
+[node name="spiders" type="Node3D" parent="."]
+
+[node name="spider1" parent="spiders" instance=ExtResource("4_8jxq3")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, -0.4)
+collision_layer = 1
+speed = 2
+
+[node name="spider2" parent="spiders" instance=ExtResource("5_r3ggk")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.4, 0.1, 0.4)
+collision_layer = 1
+speed = 2
+player_num = "2"
+
+[node name="spider3" parent="spiders" instance=ExtResource("6_tq0su")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, 0.4)
+collision_layer = 1
+speed = 2
+player_num = "3"
+
+[node name="spider4" parent="spiders" instance=ExtResource("7_ltayc")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.4, 0.1, -0.4)
+collision_layer = 1
+speed = 2
+player_num = "4"
+
+[node name="game timer" parent="." instance=ExtResource("8_qo4nu")]
+visible = false
+start_time_seconds = 30
+
+[node name="obstacles" type="Node3D" parent="."]
+
+[node name="deadfish" parent="obstacles" instance=ExtResource("9_r7ctx")]
+transform = Transform3D(1.99912, 0, 0, 0, 1, 0, 0, 0, 3.02265, 0, 2, 0)
+
+[node name="long stone 0" parent="obstacles" instance=ExtResource("10_1l2sy")]
+transform = Transform3D(2.54915, 0, 0, 0, 1, 0, 0, 0, 1, 1.81619, 0.216251, -3.11007)
+
+[node name="shoe2" parent="obstacles" instance=ExtResource("11_40myh")]
+transform = Transform3D(-0.020556, -0.345948, 0.938028, 0.0589998, -0.937011, -0.34428, 0.998046, 0.0482665, 0.0396721, 3.20718, 1.04514, -0.900759)
+
+[node name="shoe1" parent="obstacles" instance=ExtResource("11_40myh")]
+transform = Transform3D(-0.0149545, 0.20096, -0.979485, -0.00341778, 0.979579, 0.201032, 0.999882, 0.00635403, -0.0139629, -6.43337, 0.216251, -2.81599)
+
+[node name="stone" parent="obstacles" instance=ExtResource("12_weo7x")]
+transform = Transform3D(-0.169005, 0, -0.462928, 0, 1, 0, 0.558997, 0, -0.13996, 2.03067, 0.216251, -1.89341)
+
+[node name="stone 2" parent="obstacles" instance=ExtResource("13_yjgkh")]
+transform = Transform3D(1.26009, 0, 0, 0, 2.15117, 0, 0, 0, 1.18257, 5.717, 0.216251, 2.44685)
+
+[node name="obstacle16" parent="obstacles" instance=ExtResource("14_he0io")]
+transform = Transform3D(16, 0, 0, 0, 10, 0, 0, 0, 0.1, -0.011, 0, 4.092)
+
+[node name="obstacle17" parent="obstacles" instance=ExtResource("14_he0io")]
+transform = Transform3D(-16, 8.74228e-07, 0, -1.39876e-06, -10, 0, 0, 0, 0.1, 0.091, 0, -4.11784)
+
+[node name="obstacle18" parent="obstacles" instance=ExtResource("14_he0io")]
+transform = Transform3D(0.1, 0, 0, 0, 10, 0, 0, 0, 8.4, -7.986, 0, 0)
+
+[node name="obstacle19" parent="obstacles" instance=ExtResource("14_he0io")]
+transform = Transform3D(0.1, 0, 0, 0, 10, 0, 0, 0, 8.4, 8, 0, 0)
+
+[node name="longstone 1" parent="obstacles" instance=ExtResource("10_1l2sy")]
+transform = Transform3D(1.57849, 0, 0, 0, 1, 0, 0, 0, 1, 7.18632, 0.216251, 0.730344)
+
+[node name="longstone 3" parent="obstacles" instance=ExtResource("10_1l2sy")]
+transform = Transform3D(-1.75997, -3.42027e-09, -0.723414, 8.9881e-09, 1, -8.09306e-09, 1.84408, -8.13829e-09, -0.690415, 5.69282, 0.216251, -3.05872)
+
+[node name="longstone 4" parent="obstacles" instance=ExtResource("12_weo7x")]
+transform = Transform3D(-0.377124, -6.51004e-10, -1.21082, 2.37123e-10, 1, -1.02837e-09, 0.958021, -5.0378e-10, -0.476636, 3.45691, 0.216251, -2.71181)
+
+[node name="wall1" parent="obstacles" instance=ExtResource("15_vjmgy")]
+transform = Transform3D(-0.00324526, 0, -0.117108, 0, 0.20795, 0, 0.104193, 0, -0.00364767, -3.21556, -1.07757, 0.9517)
+
+[node name="seahorse" parent="obstacles" instance=ExtResource("16_jjflg")]
+transform = Transform3D(1.82288, 0, 0, 0, 1.76464, 0, 0, 0, 2.10459, 0.0309501, 0.197193, 2.06143)
+
+[node name="arch" parent="obstacles" instance=ExtResource("17_iynlr")]
+transform = Transform3D(0.292676, 0, -0.00191559, 0, 0.390858, 0, 0.00101649, 0, 0.55167, -2.11892, 0, -0.377768)
+
+[node name="wall2" parent="obstacles" instance=ExtResource("15_vjmgy")]
+transform = Transform3D(0.168231, 0.111479, -0.0121022, 0.0663026, -0.283942, -0.0038442, -0.0252858, -0.00284346, -0.0905978, -5.24929, 0.612289, -0.0271242)
+
+[node name="wall3" parent="obstacles" instance=ExtResource("15_vjmgy")]
+transform = Transform3D(0.146805, 0, -0.00536344, 0, 0.0767598, 0, 0.00630439, 0, 0.124894, -3.93443, 0.0694901, 2.13745)
+
+[node name="wall4" parent="obstacles" instance=ExtResource("15_vjmgy")]
+transform = Transform3D(-0.010233, -0.0138018, -0.123125, -0.00111674, -0.0756909, 0.0225288, -0.217672, 0.00103717, 0.00567269, -1.21253, 0.34879, -0.113911)
+
+[node name="longstone 2" parent="obstacles" instance=ExtResource("10_1l2sy")]
+transform = Transform3D(1.49744, 0, 0.670491, 0, 1, 0, -1.35328, 0, 0.741917, 3.17164, 0.216251, 1.8521)
+
+[node name="stone 1" parent="obstacles" instance=ExtResource("10_1l2sy")]
+transform = Transform3D(1.74117, 0, 0, 0, 5.54633, 0, 0, 0, 2.78119, 6.51037, 0.216251, -1.10885)
+
+[node name="stone 4" parent="obstacles" instance=ExtResource("10_1l2sy")]
+transform = Transform3D(0.698531, 0, 0.812474, 0, 1, 0, -0.426268, 0, 1.33141, 1.63841, 0.283599, 3.52905)
+
+[node name="stone 3" parent="obstacles" instance=ExtResource("13_yjgkh")]
+transform = Transform3D(-0.652341, 0, -0.816225, 0, 3.04448, 0, 0.622237, 0, -0.855715, 1.78813, 0.216251, 0.620135)
+
+[node name="stone 5" parent="obstacles" instance=ExtResource("13_yjgkh")]
+transform = Transform3D(0.901514, 0, 0, 0, 3.04448, 0, 0, 0, 1.18257, 1.15006, 0.20605, -1.59906)
+
+[node name="wall5" parent="obstacles" instance=ExtResource("15_vjmgy")]
+transform = Transform3D(0.0618037, -0.0304949, 0.0690477, -0.018007, -0.20997, 0.000659205, 0.0599667, -0.0316214, -0.0709651, -6.43918, 0.372091, 2.55971)
+
+[node name="wall6" parent="obstacles" instance=ExtResource("15_vjmgy")]
+transform = Transform3D(-0.13269, 0, -0.0801339, 0, 0.0767598, 0, 0.101798, 0, -0.104451, -4.6337, 0.069491, -2.13637)
+
+[node name="arch2" parent="obstacles" instance=ExtResource("17_iynlr")]
+transform = Transform3D(0.0120164, 0, -0.55142, 0, 0.212674, 0, 0.395798, 0, 0.0167406, -1.15948, 0, -3.13709)
+
+[node name="spawner" parent="." instance=ExtResource("18_vrcnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20687, -30.3521, -26.8191)
+
+[node name="spawn_points" type="Node3D" parent="spawner"]
+
+[node name="bubble_spawn_point2" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26741, 30.3521, 27.7271)
+
+[node name="bubble_spawn_point" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.65543, 30.3521, 23.3472)
+
+[node name="bubble_spawn_point3" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.11519, 30.3521, 26.0549)
+
+[node name="bubble_spawn_point4" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06955, 30.3521, 28.3858)
+
+[node name="bubble_spawn_point5" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25017, 30.3521, 23.4728)
+
+[node name="bubble_spawn_point6" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50435, 30.3521, 30.27)
+
+[node name="bubble_spawn_point7" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22307, 30.3521, 24.7569)
+
+[node name="bubble_spawn_point8" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.597126, 30.3521, 26.3759)
+
+[node name="bubble_spawn_point9" parent="spawner/spawn_points" instance=ExtResource("19_6cdfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43539, 30.3521, 23.4589)
