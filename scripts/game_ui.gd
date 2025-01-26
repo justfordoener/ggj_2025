@@ -85,4 +85,4 @@ func _set_game_finished():
 	game_running = false
 	game_over_menu.visible = true
 	for spider in spiders_node.get_children():
-		spider.set_game_running(game_running)
+		pass#spider.set_game_running(game_running)

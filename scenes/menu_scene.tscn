@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqcb046bqow30"]
+[gd_scene load_steps=20 format=3 uid="uid://77c3tanfys7b"]
 
 [ext_resource type="PackedScene" uid="uid://bt1b8o28tedqq" path="res://scenes/shader_overlay.tscn" id="1_75qjm"]
 [ext_resource type="PackedScene" uid="uid://d050guftxue6e" path="res://examples/scenes/menus/main_menu/main_menu_with_animations.tscn" id="2_gu8rq"]
