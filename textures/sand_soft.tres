@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://cqs8ujhjur2oe"]
+
+[ext_resource type="Texture2D" uid="uid://b3k0fde7pcmjs" path="res://textures/rippled_sand/Rippled_Sand_vd3lecfs_1K_BaseColor.jpg" id="1_5ey8i"]
+[ext_resource type="Texture2D" uid="uid://83vi4db3auxq" path="res://textures/rippled_sand/Rippled_Sand_vd3lecfs_1K_AO.jpg" id="2_2djmm"]
+[ext_resource type="Texture2D" uid="uid://bsgekyfj8j4uf" path="res://textures/rippled_sand/Rippled_Sand_vd3lecfs_1K_Normal.jpg" id="3_f8nfa"]
+[ext_resource type="Texture2D" uid="uid://eh3u1wb2inta" path="res://textures/rippled_sand/Rippled_Sand_vd3lecfs_1K_Roughness.jpg" id="4_5dcqi"]
+
+[resource]
+albedo_texture = ExtResource("1_5ey8i")
+roughness_texture = ExtResource("4_5dcqi")
+normal_enabled = true
+normal_scale = 0.55
+normal_texture = ExtResource("3_f8nfa")
+ao_enabled = true
+ao_texture = ExtResource("2_2djmm")
