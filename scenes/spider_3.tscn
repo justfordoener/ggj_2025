@@ -56,22 +56,48 @@ spider_name = "green"
 color = Color(0.26384, 0.562586, 0.197393, 1)
 
 [node name="Skeleton3D" parent="Ctrl_Global" index="0"]
-bones/3/rotation = Quaternion(-3.33705e-28, -3.31778e-27, -0.0943864, 0.995536)
-bones/8/rotation = Quaternion(0.669955, 0.567102, -0.0336214, 0.477937)
-bones/11/rotation = Quaternion(0.669955, 0.567102, -0.0336214, 0.477937)
-bones/20/rotation = Quaternion(0.483067, 0.517632, 0.701545, -0.0808612)
-bones/24/rotation = Quaternion(-0.390615, 1.22935e-07, 1.93715e-07, 0.920554)
-bones/28/rotation = Quaternion(0.505259, 0.182681, -0.0161041, 0.843257)
-bones/34/rotation = Quaternion(0.00320572, 0.359872, -0.00856673, 0.932957)
-bones/37/rotation = Quaternion(-0.390612, 1.15484e-07, 3.94322e-06, 0.920555)
+bones/3/position = Vector3(0.0935566, 0.00909395, -7.77126e-10)
+bones/3/rotation = Quaternion(-0.00243787, -0.0257133, -0.0943549, 0.995204)
+bones/5/rotation = Quaternion(-0.0118365, 0.999575, -0.0003154, -0.026635)
+bones/7/rotation = Quaternion(0.792451, 0.557681, 0.150976, -0.1955)
+bones/8/rotation = Quaternion(0.464485, 0.841777, -0.0973226, 0.257282)
+bones/10/rotation = Quaternion(-0.527354, 0.807596, -0.249343, -0.0866918)
+bones/11/rotation = Quaternion(0.499969, 0.806665, -0.0803473, 0.30474)
+bones/13/rotation = Quaternion(0.828799, 0.530559, 0.0690861, -0.16379)
+bones/14/rotation = Quaternion(0.235842, 0.335305, 0.179341, 0.894307)
+bones/15/rotation = Quaternion(0.399457, 0.466051, -0.082922, 0.785083)
+bones/17/rotation = Quaternion(0.672669, 0.472499, 0.321889, -0.469732)
+bones/18/rotation = Quaternion(0.11017, 0.337837, -0.00116976, 0.934734)
+bones/20/rotation = Quaternion(0.571224, 0.587971, 0.422055, -0.38712)
+bones/21/rotation = Quaternion(0.00343054, 0.31144, -0.00717757, 0.950233)
+bones/23/rotation = Quaternion(0.389072, 0.794921, 0.426317, -0.187022)
+bones/24/rotation = Quaternion(-0.31347, 0.373131, -0.0298606, 0.872707)
+bones/26/rotation = Quaternion(-0.554626, 0.818283, -0.104359, -0.109145)
+bones/27/rotation = Quaternion(0.234994, 0.344105, 0.184553, 0.890118)
+bones/28/rotation = Quaternion(0.395498, 0.479152, -0.0865243, 0.778786)
+bones/30/rotation = Quaternion(-0.527477, 0.669236, -0.403632, -0.333126)
+bones/31/rotation = Quaternion(0.107159, 0.394297, -0.00238325, 0.912711)
+bones/33/rotation = Quaternion(-0.58988, 0.625167, -0.386394, -0.334525)
+bones/34/rotation = Quaternion(0.00322207, 0.409076, -0.00976907, 0.912442)
+bones/36/rotation = Quaternion(0.783821, -0.451898, 0.206398, 0.372576)
+bones/37/rotation = Quaternion(-0.302985, 0.439833, -0.0330161, 0.844782)
 
 [node name="geo_spider_low" parent="Ctrl_Global/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_j2h1t")
 
-[node name="Partyhat" type="Node3D" parent="." index="5"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.193613, -0.272999, -0.4808)
+[node name="BoneAttachment3D" parent="Ctrl_Global/Skeleton3D" index="1"]
+transform = Transform3D(-0.998666, 1.49012e-08, 0.05164, 4.47035e-08, 1, 9.31322e-10, -0.05164, 9.31322e-10, -0.998666, -0.0901806, 0.0884706, 7.77126e-10)
 
-[node name="geo_party_low" type="MeshInstance3D" parent="Partyhat" index="0"]
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Ctrl_Global/Skeleton3D" index="2"]
+transform = Transform3D(0.97607, 0.211135, 0.0520543, -0.210836, 0.977457, -0.011244, -0.0532549, -5.82078e-11, 0.998581, 0.134602, 0.0503174, -0.00293995)
+bone_name = "head_end"
+bone_idx = 6
+
+[node name="geo_party_low" type="MeshInstance3D" parent="Ctrl_Global/Skeleton3D/BoneAttachment3D2" index="0"]
+transform = Transform3D(-0.0260389, -0.211064, -0.977126, -1.21072e-08, 0.977457, -0.211135, 0.999661, -0.00549772, -0.0254519, -0.0446423, -0.0453718, -0.0750811)
 mesh = SubResource("ArrayMesh_b2sbf")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_csr0p")
+
+[node name="Partyhat" type="Node3D" parent="." index="5"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.193613, -0.272999, -0.4808)

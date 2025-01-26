@@ -56,20 +56,45 @@ normal_texture = ExtResource("4_70teo")
 spider_name = "red"
 
 [node name="Skeleton3D" parent="Ctrl_Global" index="0"]
-bones/3/rotation = Quaternion(-3.33705e-28, -3.31778e-27, -0.0943864, 0.995536)
-bones/8/rotation = Quaternion(0.669955, 0.567102, -0.0336214, 0.477937)
-bones/11/rotation = Quaternion(0.669955, 0.567102, -0.0336214, 0.477937)
-bones/20/rotation = Quaternion(0.483067, 0.517632, 0.701545, -0.0808612)
-bones/24/rotation = Quaternion(-0.390615, 1.22935e-07, 1.93715e-07, 0.920554)
-bones/28/rotation = Quaternion(0.505259, 0.182681, -0.0161041, 0.843257)
-bones/34/rotation = Quaternion(0.00320572, 0.359872, -0.00856673, 0.932957)
-bones/37/rotation = Quaternion(-0.390612, 1.15484e-07, 3.94322e-06, 0.920555)
+bones/3/position = Vector3(0.0931506, 0.00697236, -5.95891e-10)
+bones/3/rotation = Quaternion(-0.00186333, -0.0196534, -0.094368, 0.995342)
+bones/5/rotation = Quaternion(-0.0118299, 0.999021, -0.000504791, -0.0426288)
+bones/7/rotation = Quaternion(0.840861, 0.431866, 0.0156317, -0.325883)
+bones/8/rotation = Quaternion(0.59947, 0.681075, -0.0461228, 0.417905)
+bones/10/rotation = Quaternion(-0.439711, 0.838174, -0.322237, -0.0167919)
+bones/11/rotation = Quaternion(0.594816, 0.688044, -0.0475333, 0.412954)
+bones/13/rotation = Quaternion(0.83168, 0.521642, 0.0576272, -0.181321)
+bones/14/rotation = Quaternion(0.236022, 0.331986, 0.177366, 0.895891)
+bones/15/rotation = Quaternion(0.401029, 0.461423, -0.0813753, 0.787174)
+bones/17/rotation = Quaternion(0.672431, 0.453067, 0.320672, -0.489629)
+bones/18/rotation = Quaternion(0.111583, 0.316046, -0.000530571, 0.942159)
+bones/20/rotation = Quaternion(0.576514, 0.586693, 0.414531, -0.389342)
+bones/21/rotation = Quaternion(0.00336041, 0.323056, -0.00751117, 0.946344)
+bones/23/rotation = Quaternion(0.39289, 0.793657, 0.42284, -0.192232)
+bones/24/rotation = Quaternion(-0.312287, 0.379706, -0.0299312, 0.87029)
+bones/26/rotation = Quaternion(-0.560171, 0.814817, -0.0863824, -0.12174)
+bones/27/rotation = Quaternion(0.234703, 0.346081, 0.185715, 0.889186)
+bones/28/rotation = Quaternion(0.39466, 0.482358, -0.0871902, 0.777157)
+bones/30/rotation = Quaternion(-0.541556, 0.667072, -0.383834, -0.338237)
+bones/31/rotation = Quaternion(0.106601, 0.407454, -0.00250451, 0.906979)
+bones/33/rotation = Quaternion(-0.588095, 0.617962, -0.388942, -0.347837)
+bones/34/rotation = Quaternion(0.00320591, 0.397654, -0.00948544, 0.917481)
+bones/36/rotation = Quaternion(0.785214, -0.441148, 0.207156, 0.381986)
+bones/37/rotation = Quaternion(-0.30428, 0.430811, -0.0324153, 0.848979)
 
-[node name="Node3D" type="Node3D" parent="." index="5"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0711256, 0.270057)
+[node name="BoneAttachment3D" parent="Ctrl_Global/Skeleton3D" index="1"]
+transform = Transform3D(-0.999221, -1.49012e-08, 0.0394753, -4.74819e-18, 1, 9.31322e-10, -0.0394753, 2.32831e-10, -0.999221, -0.0901806, 0.0863105, 5.95891e-10)
 
-[node name="geo_schleife_low" type="MeshInstance3D" parent="Node3D" index="0"]
-transform = Transform3D(0.128674, 0, 0.991687, 0, 1, 0, -0.991687, 0, 0.128674, 0, -0.105686, -0.286)
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Ctrl_Global/Skeleton3D" index="2"]
+transform = Transform3D(0.973904, 0.211135, 0.0832658, -0.210368, 0.977457, -0.0179858, -0.0851861, -1.16415e-10, 0.996365, 0.134482, 0.0503432, -0.00470273)
+bone_name = "head_end"
+bone_idx = 6
+
+[node name="geo_schleife_low" type="MeshInstance3D" parent="Ctrl_Global/Skeleton3D/BoneAttachment3D2" index="0"]
+transform = Transform3D(-0.676528, -0.176383, 0.0346129, -0.178122, 0.67595, -0.0369376, -0.0241163, -0.0445067, -0.698167, 0.02669, 0.00360855, 0.00118861)
 mesh = SubResource("ArrayMesh_087x7")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_n1j13")
+
+[node name="Node3D" type="Node3D" parent="." index="5"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0711256, 0.270057)

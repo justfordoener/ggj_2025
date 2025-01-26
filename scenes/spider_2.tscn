@@ -60,11 +60,46 @@ player_num = "2"
 spider_name = "yellow"
 color = Color(0.905882, 0.784314, 0, 1)
 
+[node name="Skeleton3D" parent="Ctrl_Global" index="0"]
+bones/3/position = Vector3(0.0927147, 0.00469414, -4.01289e-10)
+bones/3/rotation = Quaternion(-0.00125512, -0.0132383, -0.094378, 0.995448)
+bones/5/rotation = Quaternion(-0.0118354, 0.999484, -0.000353457, -0.0298489)
+bones/7/rotation = Quaternion(0.846921, 0.418056, 0.0328908, -0.326914)
+bones/8/rotation = Quaternion(0.622105, 0.646843, -0.0410208, 0.439201)
+bones/10/rotation = Quaternion(-0.424278, 0.844902, -0.32401, -0.0338753)
+bones/11/rotation = Quaternion(0.618028, 0.653168, -0.0418639, 0.4355)
+bones/13/rotation = Quaternion(0.829406, 0.528797, 0.0667682, -0.167339)
+bones/14/rotation = Quaternion(0.235878, 0.334663, 0.178958, 0.894615)
+bones/15/rotation = Quaternion(0.399765, 0.465145, -0.0826181, 0.785495)
+bones/17/rotation = Quaternion(0.672672, 0.46872, 0.321558, -0.473724)
+bones/18/rotation = Quaternion(0.110433, 0.333671, -0.00104187, 0.936198)
+bones/20/rotation = Quaternion(0.58172, 0.585029, 0.406875, -0.392168)
+bones/21/rotation = Quaternion(0.00330005, 0.334413, -0.00784136, 0.942388)
+bones/23/rotation = Quaternion(0.396604, 0.792264, 0.419302, -0.198013)
+bones/24/rotation = Quaternion(-0.311146, 0.386099, -0.0299851, 0.867881)
+bones/26/rotation = Quaternion(-0.555798, 0.817601, -0.100752, -0.111655)
+bones/27/rotation = Quaternion(0.234932, 0.344524, 0.184799, 0.889921)
+bones/28/rotation = Quaternion(0.395321, 0.479831, -0.0866646, 0.778443)
+bones/30/rotation = Quaternion(-0.530381, 0.668835, -0.399634, -0.334139)
+bones/31/rotation = Quaternion(0.10704, 0.397062, -0.00240735, 0.911525)
+bones/33/rotation = Quaternion(-0.585974, 0.60984, -0.391882, -0.362157)
+bones/34/rotation = Quaternion(0.00319688, 0.384742, -0.0091681, 0.922973)
+bones/36/rotation = Quaternion(0.786588, -0.429318, 0.208064, 0.392015)
+bones/37/rotation = Quaternion(-0.30574, 0.420682, -0.0317196, 0.853548)
+
 [node name="geo_spider_low" parent="Ctrl_Global/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_v2qkc")
 
-[node name="geo_cappie_low" type="MeshInstance3D" parent="." index="5"]
-transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, -0.251554, -0.0983334)
+[node name="BoneAttachment3D" parent="Ctrl_Global/Skeleton3D" index="1"]
+transform = Transform3D(-0.999646, -1.49012e-08, 0.026593, -1.49012e-08, 1, -1.2024e-16, -0.026593, -1.20283e-16, -0.999646, -0.0901806, 0.083991, 4.01289e-10)
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Ctrl_Global/Skeleton3D" index="2"]
+transform = Transform3D(0.975715, 0.211135, 0.0583302, -0.210759, 0.977457, -0.0125996, -0.0596755, -1.23259e-16, 0.998218, 0.134582, 0.0503216, -0.0032944)
+bone_name = "head_end"
+bone_idx = 6
+
+[node name="geo_cappie_low" type="MeshInstance3D" parent="Ctrl_Global/Skeleton3D/BoneAttachment3D2" index="0"]
+transform = Transform3D(0.919129, -0.392995, -0.0275258, 0.393604, 0.919021, 0.0218587, 0.0167064, -0.0309253, 0.999382, -0.117839, -0.0730911, -0.00694118)
 mesh = SubResource("ArrayMesh_fm1bq")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4jenb")

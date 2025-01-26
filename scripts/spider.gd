@@ -9,18 +9,19 @@ extends CharacterBody3D
 @export var player_num : String = "1"
 @export var spider_name = "unnamed spider"
 @export var color : Color
+@export var air : float = 10
+@export var max_air : float = 10
+@export var inertia : float = 5
 
 @onready var spider_mesh = $Area3D/CollisionShape3D2/geo_spider_low
-@onready var breath : Node3D = $breath
+@onready var breath : Node3D = $Ctrl_Global/Skeleton3D/BoneAttachment3D/breath
 @onready var own_area : Area3D = $Area3D
 @onready var anim_player : AnimationPlayer = breath.get_child(0)
 @onready var anim_player_spider : AnimationPlayer = $AnimationPlayer
+@onready var blend_tree : AnimationTree = $AnimationTree
 
 var orientation : Vector3 = Vector3(1,0,0)
 var direction : Vector3 = Vector3.ZERO
-var air : float = 10
-var max_air : float = 10
-var inertia : float = 5
 
 signal spider_died(name)
 
@@ -62,11 +63,13 @@ func _move(delta : float):
 	if direction != Vector3.ZERO:
 		look_at(global_position + interpolated_direction, Vector3.UP)
 		velocity = lerp(velocity, interpolated_direction * speed, inertia * delta)
-		anim_player_spider.play("SwimCycle_Forward")
+		#anim_player_spider.play("SwimCycle_Forward")
 	else: 
 		var interpolated_velocity = lerp(velocity, Vector3.ZERO, inertia * delta)
 		velocity = interpolated_velocity
+		#anim_player_spider.play("Idle")
 	#rotate_object_local(Vector3(0,1,0), delta * look_around_speed)
+	blend_tree.set("parameters/blend_position", velocity.length())
 	move_and_slide()
 	
 func add_air(value : float):
@@ -83,9 +86,9 @@ func _lose_air(delta : float):
 		_die()
 	anim_player.seek(11 - air, true) 
 	if air < 5:
-		breath.scale = Vector3(air, air, air)
+		breath.scale = Vector3(air / 5, air / 5, air / 5)
 	else:
-		breath.scale = Vector3(5, 5, 5)
+		breath.scale = Vector3(1, 1, 1)
 
 func _die():
 	queue_free()
